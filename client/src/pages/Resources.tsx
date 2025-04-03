@@ -1,12 +1,15 @@
-import '../styles/Page.css';
-import image from '../assets/portfolio-1.jpg';
+import '../styles/Resources.css';
+import galleryImg from '../assets/portfolio-6.jpg';
 
-const Resources = () => (
-  <div className="page">
-    <h1>Our Portfolio</h1>
-    <img src={image} alt="Portfolio" />
-    <p>Explore our published games, prototypes, tools, and creative experiments in gaming tech.</p>
-  </div>
-);
+const Resources = () => {
+  return (
+    <section className="resources">
+      <h2>Game Portfolio</h2>
+      <p>From RPGs to multiplayer, check out our visual archive of excellence.</p>
+      <img src={galleryImg} alt="portfolio" className="resources-img" />
+    </section>
+  );
+};
 
 export default Resources;
+export {};

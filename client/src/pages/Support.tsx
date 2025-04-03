@@ -1,12 +1,15 @@
-import '../styles/Page.css';
-import image from '../assets/single.jpg';
+import '../styles/Support.css';
+import supportImg from '../assets/about-story.jpg';
 
-const Support = () => (
-  <div className="page">
-    <h1>Contact & Support</h1>
-    <img src={image} alt="Support" />
-    <p>Need help? Reach out to support@yakkunlabs.com or chat with us 24/7 through our support center.</p>
-  </div>
-);
+const Support = () => {
+  return (
+    <section className="support">
+      <h2>Contact & Support</h2>
+      <p>Need help? Our support team is here 24/7 to assist your game journey.</p>
+      <img src={supportImg} alt="support" className="support-img" />
+    </section>
+  );
+};
 
 export default Support;
+export {};

@@ -1,0 +1,30 @@
+.company {
+    background: #12001f;
+    color: #eee;
+    padding: 5rem 2rem;
+    text-align: center;
+    animation: fadeUp 1s ease-in-out;
+  }
+  
+  .company h2 {
+    font-size: 3rem;
+    color: #e9d5ff;
+  }
+  
+  .company p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+  }
+  
+  .company-img {
+    max-width: 70%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #a855f7;
+  }
+  
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  

@@ -1,0 +1,30 @@
+.industries {
+    background: #1c012e;
+    color: #eee;
+    padding: 5rem 2rem;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .industries h2 {
+    font-size: 3rem;
+    color: #d9a8ff;
+  }
+  
+  .industries p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+  }
+  
+  .industries-img {
+    max-width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #8b5cf6;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  

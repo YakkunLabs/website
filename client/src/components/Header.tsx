@@ -3,22 +3,19 @@ import '../styles/Header.css';
 
 const Header = () => {
   return (
-    <header className="navbar">
-      <div className="logo">🎮 Yakkun Labs</div>
-      <nav>
-        <ul className="nav-menu">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/company">About</Link></li>
-          <li><Link to="/services">Service</Link></li>
-          <li><Link to="/resources">Portfolio</Link></li>
-          <li><Link to="/industries">Pricing</Link></li>
-          <li><Link to="/careers">Pages</Link></li>
-          <li><Link to="/support">Contact</Link></li>
-        </ul>
+    <header className="header">
+      <Link to="/" className="logo">Yakkun Labs</Link>
+      <nav className="nav">
+        <Link to="/">Home</Link>
+        <Link to="/services">Services</Link>
+        <Link to="/industries">Pricing</Link>
+        <Link to="/company">About</Link>
+        <Link to="/resources">Portfolio</Link>
+        <Link to="/careers">Careers</Link>
+        <Link to="/support">Support</Link>
       </nav>
     </header>
   );
 };
 
 export default Header;
-export {}; // ✅ Fix for isolatedModules

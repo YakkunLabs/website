@@ -1,12 +1,15 @@
-import '../styles/Page.css';
-import image from '../assets/portfolio-5.jpg';
+import '../styles/Industries.css';
+import pricingImg from '../assets/portfolio-3.jpg';
 
-const Industries = () => (
-  <div className="page">
-    <h1>Pricing Plans</h1>
-    <img src={image} alt="Pricing" />
-    <p>Choose from Indie, Studio, or Enterprise packages customized for your project scale and goals.</p>
-  </div>
-);
+const Industries = () => {
+  return (
+    <section className="industries">
+      <h2>Pricing Plans</h2>
+      <p>Affordable plans tailored for studios and enterprise clients.</p>
+      <img src={pricingImg} alt="pricing" className="industries-img" />
+    </section>
+  );
+};
 
 export default Industries;
+export {};

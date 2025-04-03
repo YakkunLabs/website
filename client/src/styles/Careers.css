@@ -1,0 +1,41 @@
+.careers {
+    background: #190025;
+    color: #eee;
+    padding: 5rem 2rem;
+    text-align: center;
+    animation: riseFade 1s ease-in-out;
+  }
+  
+  .careers h2 {
+    font-size: 3rem;
+    color: #d8b4fe;
+  }
+  
+  .careers p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #bbb;
+  }
+  
+  .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .team-grid img {
+    max-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #9333ea;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-grid img:hover {
+    transform: scale(1.05);
+  }
+  
+  @keyframes riseFade {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }

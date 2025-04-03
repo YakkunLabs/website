@@ -1,0 +1,68 @@
+.home {
+    background-color: #0f0f1a;
+    color: #e0e0ff;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  .section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5rem 2rem;
+    border-bottom: 1px solid #222;
+    gap: 2rem;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .section:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  
+  .section img {
+    flex: 1;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 0 20px rgba(145, 71, 255, 0.4);
+  }
+  
+  .text {
+    flex: 1;
+    min-width: 300px;
+    padding: 1rem;
+  }
+  
+  .text h1,
+  .text h2 {
+    color: #bb86fc;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .text p {
+    font-size: 1.1rem;
+    color: #c7c7c7;
+  }
+  
+  .banner {
+    background: linear-gradient(to right, #1b0037, #2a064b);
+    text-align: center;
+    padding: 6rem 2rem;
+  }
+  
+  .banner .text h1 {
+    font-size: 3.2rem;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

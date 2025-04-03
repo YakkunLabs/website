@@ -1,12 +1,15 @@
-import '../styles/Page.css';
-import image from '../assets/about-story.jpg';
+import '../styles/Company.css';
+import aboutImg from '../assets/about.jpg';
 
-const Company = () => (
-  <div className="page">
-    <h1>About Yakkun Labs</h1>
-    <img src={image} alt="About Company" />
-    <p>A creative game tech company based in Sri Lanka. We bring stories to life through technology and design.</p>
-  </div>
-);
+const Company = () => {
+  return (
+    <section className="company">
+      <h2>About Us</h2>
+      <p>Yakkun Labs is a passionate team of creatives and engineers building immersive game experiences.</p>
+      <img src={aboutImg} alt="about us" className="company-img" />
+    </section>
+  );
+};
 
 export default Company;
+export {};
