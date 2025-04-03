@@ -2,35 +2,32 @@
     background-color: #0f0f1a;
     color: #e0e0ff;
     font-family: 'Segoe UI', sans-serif;
-    scroll-behavior: smooth;
   }
   
   .section {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     padding: 5rem 2rem;
     border-bottom: 1px solid #222;
     gap: 2rem;
     animation: fadeIn 1s ease-in;
   }
   
-  .section:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-  
-  .section img {
-    flex: 1;
-    max-width: 600px;
-    width: 100%;
-    border-radius: 14px;
-    box-shadow: 0 0 20px rgba(145, 71, 255, 0.4);
+  .banner {
+    background: linear-gradient(to right, #1b0037, #2a064b);
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
   }
   
   .text {
     flex: 1;
     min-width: 300px;
     padding: 1rem;
+    max-width: 500px; /* Limit width of text section */
+    text-align: center;
   }
   
   .text h1,
@@ -45,14 +42,47 @@
     color: #c7c7c7;
   }
   
-  .banner {
-    background: linear-gradient(to right, #1b0037, #2a064b);
+  .slider {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    margin-top: 2rem;
     text-align: center;
-    padding: 6rem 2rem;
   }
   
-  .banner .text h1 {
-    font-size: 3.2rem;
+  .slider-image {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    margin: 0 auto;
+  }
+  
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  .left {
+    left: 10px;
+  }
+  
+  .right {
+    right: 10px;
+  }
+  
+  .slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
   }
   
   @keyframes fadeIn {
@@ -64,5 +94,35 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+  
+  /* Smooth Scroll for all sections */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Section Flex Centering */
+  .section img {
+    flex: 1;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 0 20px rgba(145, 71, 255, 0.4);
+  }
+  
+  .section .text {
+    flex: 1;
+    min-width: 300px;
+    padding: 1rem;
+  }
+  
+  .section .text h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .section .text p {
+    font-size: 1.2rem;
+    color: #eaeaea;
   }
   
