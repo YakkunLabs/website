@@ -1,0 +1,22 @@
+.page {
+    padding: 2rem;
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    min-height: 80vh;
+  }
+  
+  .page img {
+    width: 50%;
+    max-width: 400px;
+    border-radius: 12px;
+    margin: 2rem auto;
+  }
+  
+  .page p {
+    font-size: 1.1rem;
+    color: #ccc;
+    max-width: 600px;
+    margin: auto;
+  }
+  

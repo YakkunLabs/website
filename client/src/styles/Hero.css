@@ -1,0 +1,47 @@
+.hero-home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background: #1e1e2f;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.text-block {
+  flex: 1;
+  padding: 1rem;
+}
+
+.text-block h1 {
+  font-size: 3rem;
+  color: #b983ff;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.text-block p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  max-width: 500px;
+}
+
+.cta-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #8e2de2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background: #4a00e0;
+}
+
+.image-block img {
+  width: 400px;
+  max-width: 100%;
+}
