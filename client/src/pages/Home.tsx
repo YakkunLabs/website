@@ -1,8 +1,8 @@
+import React, { useState } from 'react';
 import '../styles/Home.css';
-import { useState } from 'react';
-import slider1 from '../assets/slider-1.png';
-import slider2 from '../assets/slider-2.png';
-import slider3 from '../assets/slider-3.png';
+import slider1 from '../assets/img_01.png'; // Replace with your images
+import slider2 from '../assets/img_02.png';
+import slider3 from '../assets/img_03.png';
 
 const images = [slider1, slider2, slider3];
 
@@ -19,21 +19,20 @@ const Home = () => {
 
   return (
     <div className="home">
-      <section className="section banner">
-  <div className="text">
-    <h1>Yakkun Labs</h1>
-    <p>We design and build next-gen games for every screen.</p>
-  </div>
-  <div className="slider">
-    <button className="slider-button left" onClick={goToPrevious}>
-      &#60;
-    </button>
-    <img src={images[currentIndex]} alt="Slider" className="slider-image" />
-    <button className="slider-button right" onClick={goToNext}>
-      &#62;
-    </button>
-  </div>
-</section>
+      {/* Banner Section with Slider */}
+      <section className="banner">
+        <h1>Yakkun Labs</h1>
+        <p>We design and build next-gen games for every screen.</p>
+        <div className="slider">
+          <button className="slider-button left" onClick={goToPrevious}>
+            &#60;
+          </button>
+          <img src={images[currentIndex]} alt="Slider" className="slider-image" />
+          <button className="slider-button right" onClick={goToNext}>
+            &#62;
+          </button>
+        </div>
+      </section>
 
       {/* About Section */}
       <section className="section about">

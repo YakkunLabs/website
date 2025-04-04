@@ -1,0 +1,86 @@
+.store-page {
+    background-color: #1c1c1c;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 3rem 2rem;
+  }
+  
+  .store-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .store-header h1 {
+    font-size: 3rem;
+    color: #bb86fc;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .store-header p {
+    font-size: 1.2rem;
+    color: #ddd;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .product-card {
+    background-color: #2a064b;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #333;
+  }
+  
+  .product-info {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .product-title {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-price {
+    font-size: 1.3rem;
+    color: #a255f4;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-discount {
+    font-size: 1.1rem;
+    color: #ff4081;
+    font-weight: bold;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

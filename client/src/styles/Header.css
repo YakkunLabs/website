@@ -1,56 +1,128 @@
-@keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* Header Section */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1a1a; /* Dark background */
+  padding: 0.8rem 2rem;  /* Reduced padding */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  animation: slideIn 1s ease-out; /* Animation for header */
+}
+
+.logo-container {
+  flex: 1;
+  animation: logoAnim 2s ease-out infinite; /* Shimmering animation */
+}
+
+.logo {
+  font-size: 2rem;  /* Adjusted size */
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.search-bar-container {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  width: 60%;  /* Smaller width */
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  flex: 2;
+  justify-content: center; /* Center nav items */
+}
+
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #a255f4;
+}
+
+.auth-btns {
+  display: flex;
+  gap: 10px;  /* Reduced gap */
+  margin-left: 30px; /* Adjusted left margin */
+}
+
+.btn {
+  font-weight: 700;
+  padding: 0.6rem 1rem;  /* Adjusted button size */
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.signup-btn {
+  background-color: #5c3f97;
+}
+
+.login-btn {
+  background-color: #007bff;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.social-media {
+  display: flex;
+  gap: 15px;
+}
+
+.social-media a {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+.social-media a:hover {
+  color: #a255f4;
+}
+
+/* Keyframe Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
   }
-  
-  @keyframes shimmer {
-    0% {
-      text-shadow: 0 0 4px #aa77ff, 0 0 8px #d89bff;
-    }
-    100% {
-      text-shadow: 0 0 10px #be6dff, 0 0 20px #873bd4;
-    }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fef4e8; /* cream */
-    padding: 1rem 2rem;
-    animation: slideDown 0.6s ease;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes logoAnim {
+  0% {
+    text-shadow: 0 0 4px #ff0000, 0 0 10px #ff0000;
   }
-  
-  .logo {
-    font-size: 2.3rem;
-    font-weight: 900;
-    font-family: 'Segoe UI', sans-serif;
-    color: #5d2b86; /* deep purple text */
-    text-decoration: none;
-    animation: shimmer 2s infinite alternate;
+  50% {
+    text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
   }
-  
-  .nav a {
-    margin-left: 1.5rem;
-    text-decoration: none;
-    color: #3d2353; /* soft dark plum */
-    font-size: 1.05rem;
-    font-weight: 600;
-    transition: 0.3s ease;
+  100% {
+    text-shadow: 0 0 4px #ff0000, 0 0 10px #ff0000;
   }
-  
-  .nav a:hover {
-    color: #aa77ff;
-    transform: translateY(-2px);
-  }
-  
+}
+
