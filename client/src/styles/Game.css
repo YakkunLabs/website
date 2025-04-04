@@ -1,0 +1,84 @@
+/* Game page container */
+.game-page {
+    text-align: center;
+    padding: 3rem;
+    background-color: #121212;
+    color: white;
+  }
+  
+  .game-page h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .game-page p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Container for the game cards */
+  .games-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Game card styles */
+  .game-card {
+    width: 250px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .game-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .game-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .game-info {
+    padding: 1rem;
+  }
+  
+  .game-title {
+    font-size: 1.5rem;
+    color: #bb86fc;
+    margin-bottom: 0.5rem;
+  }
+  
+  .game-price {
+    font-size: 1.2rem;
+    color: #f1f1f1;
+    margin-bottom: 1rem;
+  }
+  
+  .game-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+  }
+  
+  .game-link:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .games-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
