@@ -89,15 +89,15 @@
             <p>Join us today and start your journey.</p>
         </div>
 
-        <form action="home.html">
+        <form id="registerForm">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username" required>
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" required>
+                <input type="email" class="form-control" id="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="password" class="form-control" id="password" placeholder="Password" required>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn-primary">Register</button>
@@ -108,6 +108,24 @@
             <a href="index.html">← Visit Home Page</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+           
+            if (username === "" || email === "" || password === "") {
+                alert("Your registration details are incorrect");
+            } else {
+                alert("Registration unsuccessful!"); 
+                
+            }
+        });
+    </script>
 
 </body>
 
