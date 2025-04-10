@@ -89,12 +89,12 @@
             <p>Welcome Back! Please login to continue.</p>
         </div>
 
-        <form action="home.html">
+        <form id="loginForm">
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" required>
+                <input type="email" class="form-control" id="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="password" class="form-control" id="password" placeholder="Password" required>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn-primary">Login</button>
@@ -105,6 +105,22 @@
             <a href="index.html">← Visit Home Page</a>
         </div>
     </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // Check if email and password are correct (example validation)
+            if (email !== "test@example.com" || password !== "password123") {
+                alert("Your login details are incorrect");
+            } else {
+                window.location.href = "home.html"; // Redirect to home page on successful login
+            }
+        });
+    </script>
 
 </body>
 
