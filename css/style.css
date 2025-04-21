@@ -470,13 +470,14 @@ ol {
 /*------------------
   Feature Section
 ---------------------*/
-
+/* Feature item container */
 .feature-item {
     height: 415px;
     position: relative;
+    filter: brightness(1.1) !important; /* Brighten the underlying image */
 }
 
-/* Reduced overlay opacity from .65 to .30 */
+/* Overlay */
 .feature-item:after {
     position: absolute;
     content: "";
@@ -484,17 +485,32 @@ ol {
     height: 100%;
     left: 0;
     top: 0;
-    background: #000;
-    opacity: 0.30;
+    background: rgba(0, 0, 0, 0.15) !important; /* 15% black */
+    z-index: 1;
 }
 
+/* Badge base styling */
 .feature-item .cata {
+    display: inline-block;
+    padding: 0.25em 0.75em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    color: #fff;
     position: relative;
+    z-index: 3;
     margin-top: 28px;
     margin-left: 29px;
-    z-index: 3;
 }
 
+/* Badge colors */
+.cata.new      { background-color: #ff1654; }  /* update */
+.cata.strategy { background-color: #25c56a; }  /* feature */
+.cata.service  { background-color: #f39c12; }  /* service */
+.cata.insight  { background-color: #3498db; }  /* insight */
+
+/* Content container */
 .feature-item .fi-content {
     position: absolute;
     width: 100%;
@@ -504,14 +520,19 @@ ol {
     z-index: 2;
 }
 
+/* Title spacing */
 .feature-item .fi-content h5 {
     margin-bottom: 18px;
 }
 
+/* “Learn More” link styling */
 .feature-item .fi-content .fi-comment {
     font-size: 12px;
-    opacity: 0.54;
+    color: #fff !important;
+    opacity: 0.85 !important;
+    text-decoration: underline;
 }
+
 
 /*----------------------
   Recent Game Section
@@ -718,108 +739,84 @@ ol {
 ------------------------*/
 
 .footer-top-section {
-	background-image: url("../img/pattern.png");
-	background-repeat: repeat;
-	padding: 72px 0;
+    position: relative;
+    padding: 72px 0;
+    background-image: url("../img/pattern.png");
+    background-repeat: repeat;
+    overflow: hidden;      /* contain the absolutely positioned image */
 }
 
-.footer-top-section .container {
-	position: relative;
-}
-
+/* The color image itself */
 .footer-top-bg {
-	position: absolute;
-	left: -30px;
-	bottom: -85px;
-	z-index: 2;
+    position: absolute;
+    left: -30px;
+    bottom: -85px;
+    z-index: 1;            /* behind all content */
+}
+
+/* Make sure the <img> is shown in full color, no darkening */
+.footer-top-bg img {
+    display: block;
+    width: auto;           /* keep your original aspect */
+    height: auto;
+    max-width: none;       /* override any constraints */
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+/* Elevate your logo & widget above the image */
+.footer-top-section .container,
+.footer-logo,
+.footer-widget {
+    position: relative;
+    z-index: 2;
 }
 
 .footer-logo img {
-	margin-bottom: 35px;
+    margin-bottom: 35px;
 }
 
 .footer-widget {
-	padding: 40px 30px 7px;
-	background: #252525;
-	border: 1px solid #4a4a4a;
+    padding: 40px 30px 7px;
+    background: #252525;
+    border: 1px solid #4a4a4a;
 }
 
+/* …then the rest of your existing rules… */
 .footer-widget .fw-title {
-	color: #fff;
-	margin-bottom: 40px;
+    color: #fff;
+    margin-bottom: 40px;
 }
 
 .latest-blog .lb-item {
-	margin-bottom: 23px;
-	overflow: hidden;
+    margin-bottom: 23px;
+    overflow: hidden;
+}
+.latest-blog .lb-thumb {
+    width: 97px;
+    height: 97px;
+    float: left;
+}
+.latest-blog .lb-content {
+    padding-left: 110px;
+}
+.latest-blog .lb-date {
+    font-size: 12px;
+    color: #ffb320;
+    margin-bottom: 8px;
+}
+.latest-blog .lb-content p {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #d3d3d3;
+}
+.latest-blog .lb-author {
+    font-size: 12px;
+    color: #d3d3d3;
+    opacity: 0.45;
 }
 
-.latest-blog .lb-item .lb-thumb {
-	width: 97px;
-	height: 97px;
-	float: left;
-}
 
-.latest-blog .lb-item .lb-content {
-	padding-left: 110px;
-}
-
-.latest-blog .lb-item .lb-content .lb-date {
-	font-size: 12px;
-	color: #ffb320;
-	margin-bottom: 8px;
-}
-
-.latest-blog .lb-item .lb-content p {
-	font-size: 12px;
-	margin-bottom: 5px;
-	color: #d3d3d3;
-}
-
-.latest-blog .lb-item .lb-content .lb-author {
-	font-size: 12px;
-	color: #d3d3d3;
-	opacity: 0.45;
-}
-
-.top-comment {
-	overflow: hidden;
-}
-
-.top-comment .tc-item {
-	margin-bottom: 23px;
-	overflow: hidden;
-}
-
-.top-comment .tc-item .tc-thumb {
-	width: 63px;
-	height: 63px;
-	border-radius: 50%;
-	float: left;
-}
-
-.top-comment .tc-item .tc-content {
-	padding-left: 100px;
-}
-
-.top-comment .tc-item .tc-content p {
-	font-size: 12px;
-	color: #d3d3d3;
-	margin-bottom: 5px;
-}
-
-.top-comment .tc-item .tc-content p a {
-	color: #ff205f;
-}
-
-.top-comment .tc-item .tc-content p span {
-	color: #7a7a7a;
-}
-
-.top-comment .tc-item .tc-content .tc-date {
-	font-size: 12px;
-	color: #ffb320;
-}
 
 /*----------------------
   Footer Section
