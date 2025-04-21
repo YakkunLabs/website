@@ -16,8 +16,8 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
-	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
 	<style>
 		.hs-text h2 {
 			font-size: 48px;
@@ -30,13 +30,9 @@
 			font-size: 18px;
 			padding: 12px 30px;
 		}
-		/* Centering and increasing the font size for the 'Coming Soon' title */
-		.coming-soon-title {
-			text-align: center;
-			font-size: 50px;
-			font-weight: 700;
-			color: #fff;
-			margin-bottom: 30px;
+		/* hide default owl-carousel dots/numbers */
+		.hero-slider .owl-dots {
+			display: none !important;
 		}
 	</style>
 </head>
@@ -76,6 +72,7 @@
 	<!-- Hero section -->
 	<section class="hero-section">
 		<div class="hero-slider owl-carousel">
+			<!-- Slide 1 -->
 			<div class="hs-item set-bg" data-setbg="img/slider-1.png">
 				<div class="hs-text">
 					<div class="container">
@@ -85,13 +82,24 @@
 					</div>
 				</div>
 			</div>
+			<!-- Slide 2 -->
 			<div class="hs-item set-bg" data-setbg="img/slider-2.png">
 				<div class="hs-text">
 					<div class="container">
 						<h2>Web3 Earning Models Explained</h2>
 						<p>Explore modern Web3 earning models and how they compare with traditional Web2 monetization systems.<br>
-							Discover the benefits of tokenized reward ecosystems and referral/staking-based systems.</p>
+						   Discover the benefits of tokenized reward ecosystems and referral/staking-based systems.</p>
 						<a href="solutions.html" class="site-btn">Learn More</a>
+					</div>
+				</div>
+			</div>
+			<!-- Slide 3 -->
+			<div class="hs-item set-bg" data-setbg="img/slider-3.png">
+				<div class="hs-text">
+					<div class="container">
+						<h2>Web3 Consultation</h2>
+						<p>Our expert team provides top-tier consultation for transitioning your game into Web3. We guide you through the complex aspects of blockchain, NFTs, and token integration.</p>
+						<a href="solutions.html" class="site-btn">Talk to Us</a>
 					</div>
 				</div>
 			</div>
@@ -165,16 +173,16 @@
 		<div class="container">
 			<div class="section-title text-center">
 				<div class="cata new" style="font-size: 30px; background-color: black; padding: 5px 20px; border-radius: 5px; color: white;">NEW</div>
-				<h2 class="coming-soon-title" style="font-size: 50px; font-weight: 700; color: black; text-align: center;">Coming Soon - Ravana Dungeons Game</h2>
+				<h2 class="coming-soon-title">Coming Soon - Ravana Dungeons Game</h2>
 			</div>
 			<div class="game-details text-center">
-				<img src="/img/recent-game/1.png" alt="Ravana Dungeons" style="width: 100%; max-width: 1000px; height: auto; margin-bottom: 20px;" />
-				<p style="font-size: 18px; color: #000;">Deploy your squad and navigate Ravana’s mystical realm to battle ancient foes, gain XP, and earn token rewards. Coming soon in Q3 2025.</p>
-				
+				<img src="img/recent-game/1.png" alt="Ravana Dungeons" style="width:100%; max-width:1000px; height:auto; margin-bottom:20px;">
+				<p style="font-size:18px; color:#000;">
+					Deploy your squad and navigate Ravana’s mystical realm to battle ancient foes, gain XP, and earn token rewards. Coming soon in Q3 2025.
+				</p>
 			</div>
 		</div>
 	</section>
-	
 	<!-- Recent game section end -->
 
 	<!-- Footer top section -->
@@ -187,7 +195,6 @@
 				<div class="col-lg-6">
 					<div class="footer-logo text-white">
 						<img src="img/footer-logo.png" alt="">
-					
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -220,7 +227,7 @@
 
 	<!-- Footer section -->
 	<footer class="footer-section">
-		<div class="container">
+		<div class="container text-center">
 			<ul class="footer-menu">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="solutions.html">Solutions</a></li>
@@ -240,5 +247,16 @@
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/jquery.marquee.min.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+		$('.hero-slider').owlCarousel({
+			loop: true,
+			items: 1,
+			autoplay: true,
+			autoplayTimeout: 6000,
+			smartSpeed: 800,
+			nav: false,
+			dots: true
+		});
+	</script>
 </body>
 </html>
