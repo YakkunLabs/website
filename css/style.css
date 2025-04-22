@@ -319,6 +319,12 @@ ol {
   Hero Section
 ---------------------*/
 
+.set-bg {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+  }
+  
 .hero-slider .hs-item {
 	height: 865px;
 	display: table;
