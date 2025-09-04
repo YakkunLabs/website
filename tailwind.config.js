@@ -6,21 +6,8 @@ export default {
     "./games.html",
     "./blog.html",
     "./contact.html",
-
-    // any additional html files
-    "./**/*.html",
-
-    // all your JavaScript files
     "./js/**/*.js",
-
-    // optional if you use a src/ folder or components
-    "./src/**/*.{html,js,ts,jsx,tsx,vue,svelte}",
-    "./components/**/*.{html,js,ts,jsx,tsx}",
-    "./pages/**/*.{html,js,ts,jsx,tsx}",
-
-    // exclude build + deps
-    "!./dist/**",
-    "!./node_modules/**"
+    "./src/**/*.{js,ts,jsx,tsx,vue}"
   ],
   theme: {
     extend: {
@@ -31,10 +18,12 @@ export default {
         ink: "var(--ink)",
         "ink-soft": "var(--ink-soft)",
         "ink-muted": "var(--ink-muted)",
-        accent: "var(--accent)"
+        accent: "var(--accent)",
       },
-      borderRadius: { '2xl': '1rem' }
+      borderRadius: { 
+        '2xl': '1rem' 
+      },
     },
   },
-  plugins: []
+  plugins: [],
 }
