@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   // For custom domain root (https://yakkunlabs.com/). 
   // If you ever deploy under a subpath, change to '/repo-name/'.
-  base: '/',
+  base: '/website',
 
   server: {
     host: true,
