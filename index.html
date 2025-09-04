@@ -1,291 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <title>Yakkun Labs - Web2 to Web3 Game Transition</title>
-  <meta charset="UTF-8">
-  <meta name="description" content="Yakkun Labs helps Web2 game developers transition to Web3 with blockchain, NFTs, and token ecosystems.">
-  <meta name="keywords" content="Web3, blockchain, NFTs, game development, token economy">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Favicon -->
-  <link href="img/favicon.ico" rel="shortcut icon"/>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="css/font-awesome.min.css"/>
-  <link rel="stylesheet" href="css/owl.carousel.css"/>
-  <link rel="stylesheet" href="css/animate.css"/>
-  <link rel="stylesheet" href="css/style.css"/>
-
-  <style>
-    /* Hero text */
-    .hs-text h2 {
-      font-size: 48px;
-      font-weight: 700;
-    }
-    .hs-text p {
-      font-size: 20px;
-    }
-    .site-btn {
-      font-size: 18px;
-      padding: 12px 30px;
-    }
-
-    /* Hide default carousel dots */
-    .hero-slider .owl-dots {
-      display: none !important;
-    }
-
-    /* Lighten footer-top section */
-    .footer-top-section {
-      background-color: #fcfcfc;
-    }
-    .footer-top-section .footer-top-bg img {
-      opacity: 0.1;
-    }
-
-    /* Brighten feature section images and reduce overlay */
-    .feature-item.set-bg {
-      filter: brightness(1.15) !important;
-    }
-    .feature-item:after {
-      background: rgba(0, 0, 0, 0.15) !important;
-    }
-    .feature-item .fi-comment {
-      color: #fff !important;
-      opacity: 0.85 !important;
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YakkunLabs — Re Imagine Gaming Technologies for web3</title>
+  <meta name="description" content="Re Imagine Gaming Technologies for web3 — tools, SDKs, and playable experiences that let players truly own items." />
+  <link rel="icon" href="/img/favicon.png" />
+  <link rel="stylesheet" href="/css/globals.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body>
-  <!-- Preloader -->
-  <div id="preloder"><div class="loader"></div></div>
-
-  <!-- Header -->
-  <header class="header-section">
-    <div class="container">
-      <a class="site-logo" href="index.html">
-        <img src="img/logo.png" alt="Yakkun Labs">
+<body class="bg-page text-ink antialiased">
+  <!-- NAV -->
+  <header class="sticky top-3 z-50 flex justify-center px-4">
+    <nav class="yl-nav">
+      <a href="/index.html" class="flex items-center gap-2 shrink-0">
+        <img src="/logo.png" class="h-7 w-7 rounded-md object-contain" alt="YakkunLabs logo" />
+        <span class="yl-logo">YakkunLabs</span>
       </a>
-      <div class="user-panel">
-        <a href="login.html">Login</a>
+      <ul class="hidden md:flex items-center gap-1">
+        <li><a class="yl-link is-active" href="/index.html">Home</a></li>
+        <li><a class="yl-link" href="/game.html">Game</a></li>
+        <li><a class="yl-link" href="/blog.html">Blog</a></li>
+        <li><a class="yl-link" href="/community.html">Community</a></li>
+        <li><a class="yl-link" href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <a href="/game.html" class="yl-btn yl-btn-connect hidden sm:inline-flex">Play / Demo</a>
+        <button id="navToggle" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-edge" aria-label="Toggle menu" aria-controls="mobileMenu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+        </button>
       </div>
-      <div class="nav-switch"><i class="fa fa-bars"></i></div>
-      <nav class="main-menu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="solutions.html">Solutions</a></li>
-          <li><a href="company.html">Company</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+      <!-- Mobile -->
+      <div id="mobileMenu" class="hidden md:hidden absolute left-0 right-0 top-[72px] mx-auto w-[min(92vw,740px)]">
+        <div class="rounded-2xl border border-edge bg-white/90 backdrop-blur p-2 shadow-xl">
+          <a class="yl-mobile-link block is-active" href="/index.html">Home</a>
+          <a class="yl-mobile-link block" href="/game.html">Game</a>
+          <a class="yl-mobile-link block" href="/blog.html">Blog</a>
+          <a class="yl-mobile-link block" href="/community.html">Community</a>
+          <a class="yl-mobile-link block" href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
   </header>
-  <!-- Header end -->
 
-  <!-- Hero section -->
-  <section class="hero-section">
-    <div class="hero-slider owl-carousel">
-      <!-- Slide 1 -->
-      <div class="hs-item set-bg" data-setbg="img/slider-1.png">
-        <div class="hs-text">
-          <div class="container">
-            <h2>Web2 to Web3 Game Transition</h2>
-            <p>Helping Web2 game developers convert their games into Web3-ready experiences using blockchain, NFTs, wallets, and token ecosystems.</p>
-            <a href="solutions.html" class="site-btn">Get Started</a>
-          </div>
-        </div>
-      </div>
-      <!-- Slide 2 -->
-      <div class="hs-item set-bg" data-setbg="img/slider-2.png">
-        <div class="hs-text">
-          <div class="container">
-            <h2>Explore &amp; Experience Web3 Earning Models</h2>
-            <p>
-              Explore modern Web3 earning models and how they compare to traditional Web2 monetization systems.<br>
-              Discover the benefits of tokenized reward ecosystems, including referral and staking mechanisms.<br>
-              <strong>Plus, you can play the games we’ve created.</strong>
-            </p>
-            <a href="solutions.html" class="site-btn">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <!-- Slide 3 -->
-      <div class="hs-item set-bg" data-setbg="img/slider-3.png">
-        <div class="hs-text">
-          <div class="container">
-            <h2>Web3 Consultation</h2>
-            <p>Our expert team provides top-tier consultation for transitioning your game into Web3. We guide you through the complex aspects of blockchain, NFTs, and token integration.</p>
-            <a href="solutions.html" class="site-btn">Talk to Us</a>
-          </div>
-        </div>
+  <!-- HERO (uses public/bg_3.png) -->
+  <section class="yl-hero">
+    <div class="yl-hero-bg" aria-hidden="true"></div>
+    <div class="yl-hero-aurora" aria-hidden="true"></div>
+    <div class="yl-hero-grid" aria-hidden="true"></div>
+
+    <div class="yl-hero-inner">
+      <h1 class="yl-title">Re Imagine <span class="yl-title-accent">Gaming Technologies</span> for web3</h1>
+      <p class="yl-subtitle">
+        We build tools and games that take Web2 studios into Web3 wallets, NFTs, and player-owned economies without sacrificing fun or performance.
+      </p>
+      <div class="yl-hero-actions">
+        <a class="yl-btn yl-btn-explore" href="/game.html">Explore the Game</a>
+        <a class="yl-btn yl-btn-ghost" href="/contact.html">Talk to Us</a>
       </div>
     </div>
   </section>
-  <!-- Hero section end -->
 
-  <!-- Latest news -->
-  <div class="latest-news-section">
-    <div class="ln-title">Yakkun Labs Updates</div>
-    <div class="news-ticker">
-      <div class="news-ticker-contant">
-        <div class="nt-item"><span class="new">update</span> Coming Soon - Our Ravana Dungeons game release!</div>
-        <div class="nt-item"><span class="strategy">feature</span> Our coin is releasing soon!</div>
+  <!-- VALUE -->
+  <main>
+    <!-- Add this section after your hero section in index.html -->
+<section class="yl-section yl-features-section">
+  <div class="yl-features-header">
+    <h2 class="yl-h2 yl-features-title">Explore & Experience Web3 Earning Models</h2>
+    <p class="yl-features-subtitle">Compare tokenized rewards with classic monetization. See how royalties, referrals, and staking fit real gameplay loops.</p>
+  </div>
+  
+  <div class="yl-features-grid">
+    <!-- Feature Card 1 -->
+    <div class="yl-feature-card yl-feature-card--enhanced">
+      <div class="yl-feature-icon-wrapper">
+        <div class="yl-feature-icon yl-feature-icon--token">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v12"/>
+            <path d="M6 12h12"/>
+          </svg>
+        </div>
       </div>
+      <h3 class="yl-feature-title">Tokenized Rewards</h3>
+      <p class="yl-feature-desc">Design fair loops with tokens & NFT drops.</p>
+      <div class="yl-feature-glow"></div>
+    </div>
+
+    <!-- Feature Card 2 -->
+    <div class="yl-feature-card yl-feature-card--enhanced">
+      <div class="yl-feature-icon-wrapper">
+        <div class="yl-feature-icon yl-feature-icon--smooth">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="yl-feature-title">Smooth Onboarding</h3>
+      <p class="yl-feature-desc">Account abstraction + wallet flows that feel native.</p>
+      <div class="yl-feature-glow"></div>
+    </div>
+
+    <!-- Feature Card 3 -->
+    <div class="yl-feature-card yl-feature-card--enhanced">
+      <div class="yl-feature-icon-wrapper">
+        <div class="yl-feature-icon yl-feature-icon--economy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 1v22"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+      </div>
+      <h3 class="yl-feature-title">Economy Tools</h3>
+      <p class="yl-feature-desc">Bundles, royalties & analytics to balance your market.</p>
+      <div class="yl-feature-glow"></div>
     </div>
   </div>
-  <!-- Latest news end -->
+</section>
 
-  <!-- Feature section -->
-  <section class="feature-section spad">
-    <div class="container">
-      <div class="row">
-        <!-- Card 1 -->
-        <div class="col-lg-3 col-md-6 p-0">
-          <div class="feature-item set-bg" data-setbg="img/features/1.png">
-            <span class="cata new">update</span>
-            <div class="fi-content text-white">
-              <h5><a href="#">Web3 SDK launched for Unity &amp; Unreal</a></h5>
-              <p>Build blockchain-integrated games directly using our latest developer SDKs.</p>
-              <a href="solutions.html" class="fi-comment">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="col-lg-3 col-md-6 p-0">
-          <div class="feature-item set-bg" data-setbg="img/features/2.png">
-            <span class="cata strategy">feature</span>
-            <div class="fi-content text-white">
-              <h5><a href="#">Play-to-Earn Mechanics Implementation</a></h5>
-              <p>Implement customizable play‑to‑earn mechanics that reward players with tokens and NFTs for in‑game achievements.</p>
-              <a href="solutions.html" class="fi-comment">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="col-lg-3 col-md-6 p-0">
-          <div class="feature-item set-bg" data-setbg="img/features/3.png">
-            <span class="cata service">service</span>
-            <div class="fi-content text-white">
-              <h5><a href="#">NFT Marketplace Development</a></h5>
-              <p>Set up a full‑featured NFT marketplace for minting, trading, and showcasing your game assets on‑chain.</p>
-              <a href="solutions.html" class="fi-comment">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="col-lg-3 col-md-6 p-0">
-          <div class="feature-item set-bg" data-setbg="img/features/4.png">
-            <span class="cata insight">insight</span>
-            <div class="fi-content text-white">
-              <h5><a href="#">Top 5 Trends in Web3 Game Mechanics</a></h5>
-              <p>Discover what’s driving innovation in blockchain-based gameplay today.</p>
-              <a href="solutions.html" class="fi-comment">Learn More</a>
-            </div>
-          </div>
-        </div>
+<!-- Updates Section -->
+<section class="yl-section yl-updates-section">
+  <div class="yl-updates-header">
+    <h2 class="yl-h2">Yakkun Labs Updates</h2>
+  </div>
+  
+  <div class="yl-updates-grid">
+    <!-- Update Card 1 -->
+    <div class="yl-update-card yl-update-card--major">
+      <div class="yl-update-badge yl-update-badge--update">UPDATE</div>
+      <h3 class="yl-update-title">Coming Soon — Ravana Dungeons</h3>
+      <p class="yl-update-desc">Deploy your squad, battle ancient foes, and earn seasonal rewards.</p>
+      <div class="yl-update-progress">
+        <div class="yl-update-progress-bar" style="width: 75%"></div>
       </div>
     </div>
-  </section>
-  <!-- Feature section end -->
 
-  <!-- Recent game section -->
-  <section class="recent-game-section spad set-bg" data-setbg="img/recent-game-bg.png">
-    <div class="container">
-      <div class="section-title text-center">
-        <div class="cata new" style="font-size:30px; background-color:black; padding:5px 20px; border-radius:5px; color:white;">
-          NEW
-        </div>
-        <h2 class="coming-soon-title" style="font-size:50px; font-weight:700; color:black; text-align:center;">
-          Coming Soon - Ravana Dungeons Game
-        </h2>
-      </div>
-      <div class="game-details text-center">
-        <img src="img/recent-game/1.png" alt="Ravana Dungeons" style="width:100%; max-width:1000px; height:auto; margin-bottom:20px;">
-        <p style="font-size:18px; color:#000;">
-          Deploy your squad and navigate Ravana’s mystical realm to battle ancient foes, gain XP, and earn token rewards. Coming soon in Q3 2025.
-        </p>
+    <!-- Update Card 2 -->
+    <div class="yl-update-card">
+      <div class="yl-update-badge yl-update-badge--feature">FEATURE</div>
+      <h3 class="yl-update-title">Our coin is releasing soon</h3>
+      <p class="yl-update-desc">Utility aligned with gameplay—not pay-to-win.</p>
+      <div class="yl-update-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
       </div>
     </div>
-  </section>
-  <!-- Recent game section end -->
 
-  <!-- Footer top section -->
-  <section class="footer-top-section">
-    <div class="footer-top-bg">
-      <img src="img/footer-top-bg.png" alt="Footer background">
+    <!-- Update Card 3 -->
+    <div class="yl-update-card">
+      <div class="yl-update-badge yl-update-badge--update">UPDATE</div>
+      <h3 class="yl-update-title">Web3 SDK for Unity & Unreal</h3>
+      <p class="yl-update-desc">Integrate wallets, mint NFTs, and interact with tokens directly in your game build.</p>
+      <a href="#" class="yl-update-link">Learn More</a>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="footer-logo text-white">
-            <img src="img/footer-logo.png" alt="Yakkun Labs Logo">
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="footer-widget">
-            <h4 class="fw-title">Upcoming Events</h4>
-            <div class="latest-blog">
-              <div class="lb-item">
-                <div class="lb-thumb set-bg" data-setbg="img/latest-blog/1.png"></div>
-                <div class="lb-content">
-                  <div class="lb-date">May 15, 2025</div>
-                  <p>Dungeons Dragon Game Launch</p>
-                  <a href="#" class="lb-author">By Yakkun Labs</a>
-                </div>
-              </div>
-              <div class="lb-item">
-                <div class="lb-thumb set-bg" data-setbg="img/latest-blog/2.png"></div>
-                <div class="lb-content">
-                  <div class="lb-date">June 20, 2025</div>
-                  <p>NFT Release</p>
-                  <a href="#" class="lb-author">By Yakkun Labs</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Footer top section end -->
+  </div>
+</section>
 
-  <!-- Footer section -->
-  <footer class="footer-section">
-    <div class="container text-center">
-      <ul class="footer-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="solutions.html">Solutions</a></li>
-        <li><a href="company.html">Company</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <p class="copyright">
-        &copy;<script>document.write(new Date().getFullYear());</script> Yakkun Labs. All rights reserved.
-      </p>
-    </div>
-  </footer>
-  <!-- Footer section end -->
+  </main>
 
-  <!-- Scripts -->
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.marquee.min.js"></script>
-  <script src="js/main.js"></script>
-  <script>
-    $('.hero-slider').owlCarousel({
-      loop: true,
-      items: 1,
-      autoplay: true,
-      autoplayTimeout: 6000,
-      smartSpeed: 800,
-      nav: false,
-      dots: true
-    });
-  </script>
+  <footer class="yl-footer">© <span id="year"></span> YakkunLabs. All rights reserved.</footer>
+  <script type="module" src="/js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Games — YakkunLabs</title>
+  <link rel="icon" href="/favicon.ico">
+</head>
+
+<body class="bg-page text-ink">
+  <!-- Navigation Bar - Centered with Logo Image -->
+  <nav class="flex items-center justify-center pt-6">
+    <div class="yl-nav">
+      <!-- Logo with Image -->
+      <div class="flex items-center gap-3">
+        <img src="/logo.png" alt="YakkunLabs Logo" class="w-8 h-8 object-contain">
+        <div class="yl-logo">YakkunLabs</div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-2">
+        <a href="/index.html" class="yl-link">Home</a>
+        <a href="/games.html" class="yl-link is-active">Game</a>
+        <a href="/blog.html" class="yl-link">Blog</a>
+        <a href="/community.html" class="yl-link">Community</a>
+        <a href="/contact.html" class="yl-link">Contact</a>
+        <a href="#" class="yl-btn yl-btn-connect ml-3">Play / Demo</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="navToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-expanded="false" aria-label="Toggle navigation menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="md:hidden fixed inset-x-4 top-24 z-50 hidden">
+    <div class="bg-white border border-edge rounded-2xl shadow-lg overflow-hidden">
+      <a href="/index.html" class="yl-mobile-link">Home</a>
+      <a href="/games.html" class="yl-mobile-link is-active">Game</a>
+      <a href="/blog.html" class="yl-mobile-link">Blog</a>
+      <a href="/community.html" class="yl-mobile-link">Community</a>
+      <a href="/contact.html" class="yl-mobile-link">Contact</a>
+      <div class="p-4 border-t border-edge">
+        <a href="#" class="yl-btn yl-btn-connect w-full text-center">Play / Demo</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upcoming Games Section -->
+  <section class="yl-section mt-8">
+    <div class="mb-12">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-800 rounded-full text-sm font-bold border border-purple-200 mb-6">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Coming Soon
+        </div>
+        <h1 class="yl-h2 text-center text-4xl md:text-5xl font-black mb-4">
+          Upcoming <span class="text-gradient">Games</span>
+        </h1>
+        <p class="text-ink-muted text-lg max-w-2xl mx-auto">
+          Get ready for our next generation of Web3 games featuring innovative mechanics and stunning gameplay.
+        </p>
+      </div>
+    </div>
+
+    <div class="yl-games-grid">
+      <!-- Game 1: Galactic Wanderers -->
+      <div class="yl-game-card yl-game-card--featured">
+        <div class="yl-game-image">
+          <img src="/img_1.png" alt="Galactic Wanderers" class="w-full h-full object-cover">
+          <div class="yl-game-overlay">
+            <div class="yl-pill">Featured</div>
+          </div>
+          <div class="yl-game-status">
+            <span class="yl-game-release">Q1 2025</span>
+          </div>
+        </div>
+        <div class="yl-game-content">
+          <div class="yl-game-meta">
+            <span class="yl-game-genre">Space RPG</span>
+            <span class="yl-game-platform">PC • Mobile</span>
+          </div>
+          <h3 class="yl-game-title">Galactic Wanderers</h3>
+          <p class="yl-game-desc">
+            Explore vast galaxies, build your fleet, and engage in strategic space combat. Own your ships as NFTs and trade resources in a player-driven economy.
+          </p>
+          <div class="yl-game-features">
+            <span class="yl-game-tag">NFT Ships</span>
+            <span class="yl-game-tag">P2E Rewards</span>
+            <span class="yl-game-tag">Guild Wars</span>
+          </div>
+          <div class="yl-game-progress">
+            <div class="yl-game-progress-bar" style="width: 75%"></div>
+          </div>
+          <div class="yl-game-footer">
+            <a href="#" class="yl-btn yl-btn-explore">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game 2: Battlefield -->
+      <div class="yl-game-card">
+        <div class="yl-game-image">
+          <img src="/img_2.png" alt="Battlefield" class="w-full h-full object-cover">
+          <div class="yl-game-status">
+            <span class="yl-game-release">Q2 2025</span>
+          </div>
+        </div>
+        <div class="yl-game-content">
+          <div class="yl-game-meta">
+            <span class="yl-game-genre">Strategy</span>
+            <span class="yl-game-platform">PC</span>
+          </div>
+          <h3 class="yl-game-title">Battlefield</h3>
+          <p class="yl-game-desc">
+            Command armies in tactical warfare. Build bases, manage resources, and lead your troops to victory in this strategic masterpiece.
+          </p>
+          <div class="yl-game-features">
+            <span class="yl-game-tag">RTS</span>
+            <span class="yl-game-tag">Base Building</span>
+          </div>
+          <div class="yl-game-progress">
+            <div class="yl-game-progress-bar" style="width: 45%"></div>
+          </div>
+          <div class="yl-game-footer">
+            <a href="#" class="yl-btn yl-btn-ghost">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+              Preview
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game 3: SpaceShooter -->
+      <div class="yl-game-card">
+        <div class="yl-game-image">
+          <img src="/img_3.png" alt="SpaceShooter" class="w-full h-full object-cover">
+          <div class="yl-game-status">
+            <span class="yl-game-release">Q2 2025</span>
+          </div>
+        </div>
+        <div class="yl-game-content">
+          <div class="yl-game-meta">
+            <span class="yl-game-genre">Action</span>
+            <span class="yl-game-platform">PC • Mobile</span>
+          </div>
+          <h3 class="yl-game-title">SpaceShooter</h3>
+          <p class="yl-game-desc">
+            Fast-paced space combat with customizable ships and weapons. Compete in tournaments and earn tokens for your skills.
+          </p>
+          <div class="yl-game-features">
+            <span class="yl-game-tag">PvP Combat</span>
+            <span class="yl-game-tag">Tournaments</span>
+          </div>
+          <div class="yl-game-progress">
+            <div class="yl-game-progress-bar" style="width: 60%"></div>
+          </div>
+          <div class="yl-game-footer">
+            <a href="#" class="yl-btn yl-btn-ghost">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+              Preview
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game 4: Ravana Dungeons -->
+      <div class="yl-game-card">
+        <div class="yl-game-image">
+          <img src="/img_4.png" alt="Ravana Dungeons" class="w-full h-full object-cover">
+          <div class="yl-game-overlay">
+            <div class="yl-pill yl-pill--soon">Beta Soon</div>
+          </div>
+          <div class="yl-game-status">
+            <span class="yl-game-release">Q3 2025</span>
+          </div>
+        </div>
+        <div class="yl-game-content">
+          <div class="yl-game-meta">
+            <span class="yl-game-genre">Dungeon Crawler</span>
+            <span class="yl-game-platform">PC</span>
+          </div>
+          <h3 class="yl-game-title">Ravana Dungeons</h3>
+          <p class="yl-game-desc">
+            Deploy your squad, battle ancient foes, and earn seasonal rewards. Deep RPG mechanics with blockchain-based character progression.
+          </p>
+          <div class="yl-game-features">
+            <span class="yl-game-tag">Squad RPG</span>
+            <span class="yl-game-tag">Loot System</span>
+            <span class="yl-game-tag">Seasons</span>
+          </div>
+          <div class="yl-game-progress">
+            <div class="yl-game-progress-bar" style="width: 30%"></div>
+          </div>
+          <div class="yl-game-footer">
+            <a href="#" class="yl-btn yl-btn-ghost">
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+              Preview
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="yl-footer">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <img src="/logo.png" alt="YakkunLabs Logo" class="w-6 h-6 object-contain">
+          <span class="font-bold">YakkunLabs</span>
+        </div>
+        <p class="text-sm text-ink-muted">
+          © <span id="year">2025</span> YakkunLabs. Building the future of Web3 gaming.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
