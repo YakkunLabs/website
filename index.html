@@ -7,7 +7,7 @@
   <meta name="description" content="Re Imagine Gaming Technologies for web3 — tools, SDKs, and playable experiences that let players truly own items." />
   <link rel="icon" href="./img/favicon.png" />
   <style>
-    /* Critical CSS for navigation - ensures navigation displays properly */
+    /* CRITICAL CSS - AGGRESSIVE NAVIGATION FIX */
     .yl-nav {
       width: min(1280px, 96vw);
       height: 60px;
@@ -61,18 +61,34 @@
       border-color: transparent !important;
     }
     
-    /* Hide mobile menu on desktop */
-    #mobileMenu {
+    /* AGGRESSIVE MOBILE MENU HIDING */
+    #mobileMenu,
+    .yl-mobile-link,
+    [id*="mobile"],
+    [class*="mobile"] {
       display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      overflow: hidden !important;
     }
     
-    /* Desktop navigation should be visible */
+    /* FORCE DESKTOP NAVIGATION VISIBILITY */
     @media (min-width: 769px) {
-      .hidden.md\:flex {
+      .hidden.md\:flex,
+      .md\:flex {
         display: flex !important;
+        visibility: visible !important;
       }
       .md\:hidden {
         display: none !important;
+      }
+      /* Double protection against mobile menu */
+      #mobileMenu {
+        display: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
       }
     }
     
@@ -82,6 +98,13 @@
       }
       .md\:hidden {
         display: inline-flex !important;
+      }
+      /* Only allow mobile menu on actual mobile */
+      #mobileMenu.show {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
       }
     }
   </style>
