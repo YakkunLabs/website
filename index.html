@@ -8,6 +8,75 @@
   <link rel="icon" href="./img/favicon.png" />
   <link rel="stylesheet" href="./css/globals.css" />
   <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* Critical CSS for navigation - ensures navigation displays properly */
+    .yl-nav {
+      width: min(1280px, 96vw);
+      height: 60px;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 999px;
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .yl-nav ul {
+      display: flex !important;
+      list-style: none !important;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .yl-nav ul li {
+      display: inline-block !important;
+      list-style: none !important;
+      margin: 0;
+    }
+    
+    .yl-link {
+      display: inline-block !important;
+      color: #2c2c2c;
+      font-weight: 700;
+      font-size: 14.5px;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 12px;
+      transition: all 0.18s ease;
+    }
+    
+    .yl-btn {
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      padding: 0 16px;
+      border-radius: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: #fff;
+      color: #161616;
+    }
+    
+    .yl-btn-connect {
+      color: #fff !important;
+      background: linear-gradient(135deg, #d97706, #b7410e 90%) !important;
+      border-color: transparent !important;
+    }
+    
+    @media (max-width: 768px) {
+      .yl-nav ul {
+        display: none !important;
+      }
+    }
+  </style>
 </head>
 <body class="bg-page text-ink antialiased">
   <!-- NAV -->
