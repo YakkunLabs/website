@@ -17,7 +17,7 @@ HOME HERO (kept)
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url("/bg_3.png") center/cover no-repeat;
+  background: url("../public/bg_3.png") center/cover no-repeat;
   opacity: 0.95;
 }
 
