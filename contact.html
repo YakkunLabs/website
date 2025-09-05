@@ -9,9 +9,28 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/contact.css" />
   <style>
-    /* Critical CSS for navigation - ensures navigation displays properly */
+    /* Critical CSS for navigation and mobile responsiveness */
+    :root {
+      --safe-area-inset-top: env(safe-area-inset-top);
+      --safe-area-inset-bottom: env(safe-area-inset-bottom);
+      --safe-area-inset-left: env(safe-area-inset-left);
+      --safe-area-inset-right: env(safe-area-inset-right);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: var(--safe-area-inset-top, 0) var(--safe-area-inset-right, 0) var(--safe-area-inset-bottom, 0) var(--safe-area-inset-left, 0);
+      font-size: clamp(16px, 4vw, 18px);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
     .yl-nav {
-      width: min(1280px, 96vw);
+      width: min(1280px, calc(100vw - 32px));
       height: 60px;
       background: #fff;
       border: 1px solid rgba(0, 0, 0, 0.1);
@@ -23,6 +42,7 @@
       box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
       position: relative;
       overflow: hidden;
+      margin: 0 16px;
     }
     
     .yl-nav > div {
@@ -34,24 +54,18 @@
       display: none !important;
     }
     
-    @media (min-width: 768px) {
-      .yl-nav .md\:flex {
-        display: flex !important;
-      }
-      .yl-nav .md\:hidden {
-        display: none !important;
-      }
-    }
-    
     .yl-link {
       display: inline-block !important;
       color: #2c2c2c;
       font-weight: 700;
-      font-size: 14.5px;
+      font-size: clamp(14px, 2.5vw, 14.5px);
       text-decoration: none;
       padding: 10px 14px;
       border-radius: 12px;
       transition: all 0.18s ease;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
     }
     
     .yl-btn {
@@ -59,6 +73,7 @@
       align-items: center;
       justify-content: center;
       height: 40px;
+      min-height: 44px;
       padding: 0 16px;
       border-radius: 12px;
       font-weight: 800;
@@ -73,7 +88,63 @@
       background: linear-gradient(135deg, #d97706, #b7410e 90%) !important;
       border-color: transparent !important;
     }
+    
+    .yl-mobile-link {
+      display: block;
+      padding: 16px 20px;
+      color: #2c2c2c;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      border-bottom: 1px solid #f0f0f0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.2s ease;
+    }
+    
+    .yl-mobile-link:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .yl-mobile-link:last-child {
+      border-bottom: none;
+    }
+    
+    .yl-mobile-link.is-active {
+      background-color: #fff5f0;
+      color: #d97706;
+      font-weight: 700;
+    }
+    
+    /* Mobile-first breakpoints */
+    @media (max-width: 480px) {
+      .yl-nav {
+        margin: 0 8px;
+        width: calc(100vw - 16px);
+      }
+      
+      body {
+        font-size: 16px;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .yl-nav .md\:flex {
+        display: flex !important;
+      }
+      .yl-nav .md\:hidden {
+        display: none !important;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .yl-nav {
+        margin: 0 auto;
+      }
+    }
   </style>
+  <script type="module" src="./js/main.js"></script>
 </head>
 
 <body class="bg-page text-ink">

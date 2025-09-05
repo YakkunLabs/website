@@ -32,16 +32,17 @@ if (toggle && menu) {
   toggle.addEventListener('click', toggleMenu);
   toggle.addEventListener('touchstart', toggleMenu, { passive: false });
 
-  // Close mobile menu when clicking on links
+  // Close mobile menu when clicking on links - but allow navigation
   menu.querySelectorAll('a').forEach(a => {
-    const closeMenu = () => {
+    const closeMenu = (e) => {
+      // Don't prevent default - allow navigation to happen
       menu.classList.add('hidden');
       toggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     };
     
+    // Only add click listener, remove touchstart to avoid conflicts
     a.addEventListener('click', closeMenu);
-    a.addEventListener('touchstart', closeMenu);
   });
 
   // Close menu when clicking outside
