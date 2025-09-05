@@ -7,9 +7,31 @@
     <title>Login | Yakkun Labs</title>
     <link rel="icon" href="./assets/favicon.BZcbmLRT.ico">
     <style>
-        /* Critical CSS for navigation - ensures navigation displays properly */
+        /* Critical CSS for navigation and mobile responsiveness */
+        :root {
+            --safe-area-inset-top: env(safe-area-inset-top);
+            --safe-area-inset-bottom: env(safe-area-inset-bottom);
+            --safe-area-inset-left: env(safe-area-inset-left);
+            --safe-area-inset-right: env(safe-area-inset-right);
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: var(--safe-area-inset-top, 0) var(--safe-area-inset-right, 0) var(--safe-area-inset-bottom, 0) var(--safe-area-inset-left, 0);
+            font-size: clamp(16px, 4vw, 18px);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: url('./assets/slider-2.ByZ_YTx6.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        
         .yl-nav {
-            width: min(1280px, 96vw);
+            width: min(1280px, calc(100vw - 32px));
             height: 60px;
             background: #fff;
             border: 1px solid rgba(0, 0, 0, 0.1);
@@ -21,32 +43,30 @@
             box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
+            margin: 16px;
         }
         
-        .yl-nav ul {
+        .yl-nav > div {
             display: flex !important;
-            list-style: none !important;
-            margin: 0;
-            padding: 0;
             align-items: center;
-            gap: 4px;
         }
         
-        .yl-nav ul li {
-            display: inline-block !important;
-            list-style: none !important;
-            margin: 0;
+        .yl-nav .hidden {
+            display: none !important;
         }
         
         .yl-link {
             display: inline-block !important;
             color: #2c2c2c;
             font-weight: 700;
-            font-size: 14.5px;
+            font-size: clamp(14px, 2.5vw, 14.5px);
             text-decoration: none;
             padding: 10px 14px;
             border-radius: 12px;
             transition: all 0.18s ease;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
         
         .yl-btn {
@@ -54,6 +74,7 @@
             align-items: center;
             justify-content: center;
             height: 40px;
+            min-height: 44px;
             padding: 0 16px;
             border-radius: 12px;
             font-weight: 800;
@@ -69,16 +90,49 @@
             border-color: transparent !important;
         }
         
-        @media (max-width: 768px) {
-            .yl-nav ul {
+        .yl-mobile-link {
+            display: block;
+            padding: 16px 20px;
+            color: #2c2c2c;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+        
+        .yl-mobile-link:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .yl-mobile-link:last-child {
+            border-bottom: none;
+        }
+        
+        /* Mobile-first breakpoints */
+        @media (max-width: 480px) {
+            .yl-nav {
+                margin: 8px;
+                width: calc(100vw - 16px);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .yl-nav .md\:flex {
+                display: flex !important;
+            }
+            .yl-nav .md\:hidden {
                 display: none !important;
             }
         }
         
-        body {
-            background: url('./assets/slider-2.ByZ_YTx6.png') no-repeat center center fixed;
-            background-size: cover;
-            font-family: Arial, sans-serif;
+        @media (min-width: 1024px) {
+            .yl-nav {
+                margin: 16px auto;
+            }
         }
 
         .login-form {
@@ -142,12 +196,54 @@
             text-decoration: none;
             font-size: 16px;
         }
-    </style>
-  <link rel="stylesheet" crossorigin href="./assets/style.KXLJa4_B.css">
+    </style>
+  <script type="module" crossorigin src="./assets/main.BkTedNNi.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main.CH0YXTYQ.css">
   <link rel="stylesheet" crossorigin href="./assets/animate.BkCApX2n.css">
 </head>
 
 <body>
+    <!-- Navigation Bar -->
+    <div style="padding: 16px 0; display: flex; justify-content: center;">
+        <nav class="yl-nav">
+            <div class="yl-logo">YakkunLabs</div>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center gap-2">
+                <a href="index.html" class="yl-link">Home</a>
+                <a href="game.html" class="yl-link">Game</a>
+                <a href="blog.html" class="yl-link">Blog</a>
+                <a href="community.html" class="yl-link">Community</a>
+                <a href="contact.html" class="yl-link">Contact</a>
+                <a href="#" class="yl-btn yl-btn-connect">Play / Demo</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="navToggle" class="md:hidden flex items-center justify-center w-10 h-10" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobileMenu" class="hidden md:hidden fixed top-20 left-4 right-4 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+        <div class="p-4 space-y-2">
+            <a href="index.html" class="yl-mobile-link block">Home</a>
+            <a href="game.html" class="yl-mobile-link block">Game</a>
+            <a href="blog.html" class="yl-mobile-link block">Blog</a>
+            <a href="community.html" class="yl-mobile-link block">Community</a>
+            <a href="contact.html" class="yl-mobile-link block">Contact</a>
+            <div class="pt-2">
+                <a href="#" class="yl-btn yl-btn-connect w-full">Play / Demo</a>
+            </div>
+        </div>
+    </div>
 
     <div class="login-form">
         <div class="form-title">
