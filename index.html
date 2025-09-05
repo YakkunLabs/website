@@ -23,19 +23,10 @@
       overflow: hidden;
     }
     
-    .yl-nav ul {
+    .yl-nav > div {
       display: flex !important;
-      list-style: none !important;
-      margin: 0;
-      padding: 0;
       align-items: center;
-      gap: 4px;
-    }
-    
-    .yl-nav ul li {
-      display: inline-block !important;
-      list-style: none !important;
-      margin: 0;
+      gap: 2px;
     }
     
     .yl-link {
@@ -47,6 +38,7 @@
       padding: 10px 14px;
       border-radius: 12px;
       transition: all 0.18s ease;
+      list-style: none !important;
     }
     
     .yl-btn {
@@ -69,9 +61,27 @@
       border-color: transparent !important;
     }
     
-    @media (max-width: 768px) {
-      .yl-nav ul {
+    /* Hide mobile menu on desktop */
+    #mobileMenu {
+      display: none !important;
+    }
+    
+    /* Desktop navigation should be visible */
+    @media (min-width: 769px) {
+      .hidden.md\:flex {
+        display: flex !important;
+      }
+      .md\:hidden {
         display: none !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hidden.md\:flex {
+        display: none !important;
+      }
+      .md\:hidden {
+        display: inline-flex !important;
       }
     }
   </style>
@@ -101,7 +111,7 @@
         </button>
       </div>
       <!-- Mobile -->
-      <div id="mobileMenu" class="hidden md:hidden absolute left-0 right-0 top-[72px] mx-auto w-[min(92vw,740px)]">
+      <div id="mobileMenu" class="hidden md:hidden absolute left-0 right-0 top-[72px] mx-auto w-[min(92vw,740px)]" style="display: none !important;">
         <div class="rounded-2xl border border-edge bg-white/90 backdrop-blur p-2 shadow-xl">
           <a class="yl-mobile-link block is-active" href="./index.html">Home</a>
           <a class="yl-mobile-link block" href="./game.html">Game</a>
