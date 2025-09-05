@@ -25,19 +25,7 @@
     .yl-nav > div {
       display: flex !important;
       align-items: center;
-    }
-    
-    .yl-nav .hidden {
-      display: none !important;
-    }
-    
-    @media (min-width: 768px) {
-      .yl-nav .md\:flex {
-        display: flex !important;
-      }
-      .yl-nav .md\:hidden {
-        display: none !important;
-      }
+      gap: 2px;
     }
     
     .yl-link {
@@ -49,6 +37,7 @@
       padding: 10px 14px;
       border-radius: 12px;
       transition: all 0.18s ease;
+      list-style: none !important;
     }
     
     .yl-btn {
@@ -69,6 +58,30 @@
       color: #fff !important;
       background: linear-gradient(135deg, #d97706, #b7410e 90%) !important;
       border-color: transparent !important;
+    }
+    
+    /* Hide mobile menu on desktop */
+    #mobileMenu {
+      display: none !important;
+    }
+    
+    /* Desktop navigation should be visible */
+    @media (min-width: 769px) {
+      .hidden.md\:flex {
+        display: flex !important;
+      }
+      .md\:hidden {
+        display: none !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hidden.md\:flex {
+        display: none !important;
+      }
+      .md\:hidden {
+        display: inline-flex !important;
+      }
     }
   </style>
   <script type="module" crossorigin src="./assets/main.o9ze6sGB.js"></script>
@@ -106,7 +119,7 @@
   </nav>
 
   <!-- Mobile Menu -->
-  <div id="mobileMenu" class="md:hidden fixed inset-x-4 top-24 z-50 hidden">
+  <div id="mobileMenu" class="md:hidden fixed inset-x-4 top-24 z-50 hidden" style="display: none !important;">
     <div class="bg-white border border-edge rounded-2xl shadow-lg overflow-hidden">
       <a href="./index.html" class="yl-mobile-link">Home</a>
       <a href="./game.html" class="yl-mobile-link">Game</a>
