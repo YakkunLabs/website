@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  // Base path for GitHub Pages - must match your repository name
-  base: '/website/',
+  // Base path for production deployment
+  base: './',
   
   // Build configuration
   build: {
