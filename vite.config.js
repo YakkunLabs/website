@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   // Base path for production deployment
@@ -11,6 +12,15 @@ export default defineConfig({
     sourcemap: false,
     minify: 'esbuild',
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        blog: resolve(__dirname, 'blog.html'),
+        community: resolve(__dirname, 'community.html'),
+        contact: resolve(__dirname, 'contact.html'),
+        game: resolve(__dirname, 'game.html'),
+        login: resolve(__dirname, 'login.html'),
+        register: resolve(__dirname, 'register.html')
+      },
       output: {
         manualChunks: undefined,
         assetFileNames: 'assets/[name].[hash].[ext]',
