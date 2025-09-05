@@ -10,22 +10,59 @@ import '../css/game.css';
 const y = document.getElementById('year');
 if (y) y.textContent = new Date().getFullYear();
 
-// Mobile navigation toggle functionality
+// Mobile navigation toggle functionality with enhanced mobile support
 const toggle = document.getElementById('navToggle');
 const menu = document.getElementById('mobileMenu');
 
 if (toggle && menu) {
-  toggle.addEventListener('click', () => {
+  // Enhanced click handler for mobile
+  const toggleMenu = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
     const open = !menu.classList.contains('hidden');
     menu.classList.toggle('hidden', open);
     toggle.setAttribute('aria-expanded', String(!open));
-  });
+    
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = open ? '' : 'hidden';
+  };
+
+  // Use both click and touchstart for better mobile responsiveness
+  toggle.addEventListener('click', toggleMenu);
+  toggle.addEventListener('touchstart', toggleMenu, { passive: false });
 
   // Close mobile menu when clicking on links
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.add('hidden');
-    toggle.setAttribute('aria-expanded', 'false');
-  }));
+  menu.querySelectorAll('a').forEach(a => {
+    const closeMenu = () => {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+    
+    a.addEventListener('click', closeMenu);
+    a.addEventListener('touchstart', closeMenu);
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Handle orientation change
+  window.addEventListener('orientationchange', () => {
+    setTimeout(() => {
+      if (!menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    }, 100);
+  });
 }
 
 // Wait for DOM to be fully loaded before initializing page features
@@ -109,17 +146,72 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Add CSS for animations
+// Add CSS for animations and mobile improvements
 const style = document.createElement('style');
 style.textContent = `
   .yl-btn {
     position: relative;
     overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .success-state {
     background: linear-gradient(135deg, #22c55e, #16a34a) !important;
     box-shadow: 0 10px 28px rgba(34, 197, 94, 0.45) !important;
+  }
+
+  /* Mobile-specific improvements */
+  @media (max-width: 768px) {
+    /* Improve touch targets */
+    .yl-link,
+    .yl-mobile-link,
+    .yl-btn {
+      min-height: 44px;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    /* Prevent zoom on input focus */
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+    }
+
+    /* Smooth scrolling for mobile */
+    html {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Better mobile transitions */
+    .yl-feature-card--enhanced,
+    .yl-update-card,
+    .yl-card,
+    .yl-post {
+      transition: none;
+    }
+
+    /* Mobile menu overlay */
+    #mobileMenu {
+      z-index: 100;
+    }
+
+    /* Improve mobile text readability */
+    body {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 `;
 document.head.appendChild(style);

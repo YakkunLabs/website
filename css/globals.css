@@ -328,3 +328,173 @@ COMPONENTS
   padding: 24px 16px;
   color: var(--ink-muted);
 }
+
+/* =========================================================
+MOBILE RESPONSIVE IMPROVEMENTS FOR GLOBALS
+======================================================= */
+
+/* Mobile navigation improvements */
+@media (max-width: 768px) {
+  .yl-nav {
+    width: calc(100vw - 32px);
+    margin: 0 16px;
+    height: 56px;
+    padding: 0 12px;
+  }
+
+  .yl-logo {
+    font-size: 18px;
+  }
+
+  #mobileMenu {
+    top: 60px;
+    left: 16px;
+    right: 16px;
+    width: calc(100vw - 32px);
+  }
+
+  .yl-mobile-link {
+    padding: 12px 16px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
+  .yl-btn {
+    height: 44px;
+    padding: 0 20px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
+  .yl-btn-connect {
+    font-size: 14px;
+    padding: 0 16px;
+  }
+}
+
+/* Small mobile optimization */
+@media (max-width: 480px) {
+  .yl-nav {
+    width: calc(100vw - 24px);
+    margin: 0 12px;
+    height: 52px;
+    padding: 0 10px;
+  }
+
+  .yl-logo {
+    font-size: 16px;
+  }
+
+  #mobileMenu {
+    left: 12px;
+    right: 12px;
+    width: calc(100vw - 24px);
+  }
+
+  .yl-mobile-link {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .yl-btn {
+    height: 42px;
+    padding: 0 18px;
+    font-size: 14px;
+  }
+}
+
+/* Section mobile improvements */
+@media (max-width: 768px) {
+  .yl-section {
+    width: calc(100vw - 32px);
+    margin: 40px 16px;
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .yl-h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .yl-h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .yl-section {
+    width: calc(100vw - 24px);
+    margin: 32px 12px;
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .yl-h2 {
+    font-size: 20px;
+  }
+
+  .yl-h2::after {
+    width: 40px;
+  }
+}
+
+/* Card mobile improvements */
+@media (max-width: 768px) {
+  .yl-card,
+  .yl-feature-card,
+  .yl-post {
+    border-radius: 16px;
+  }
+
+  /* Disable hover effects on mobile for better performance */
+  .yl-card:hover,
+  .yl-feature-card:hover,
+  .yl-post:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--edge);
+  }
+
+  .yl-card:hover::after,
+  .yl-feature-card:hover::after,
+  .yl-post:hover::after {
+    transform: translateX(-120%);
+  }
+
+  .yl-card:active,
+  .yl-feature-card:active,
+  .yl-post:active {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .yl-card-title {
+    font-size: 16px;
+  }
+}
+
+/* Input mobile improvements */
+@media (max-width: 768px) {
+  .yl-input {
+    padding: 12px 16px;
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 12px;
+  }
+
+  .yl-social {
+    height: 44px;
+    width: 44px;
+    border-radius: 12px;
+  }
+}
+
+/* Footer mobile */
+@media (max-width: 768px) {
+  .yl-footer {
+    padding: 20px 16px;
+    font-size: 14px;
+  }
+}

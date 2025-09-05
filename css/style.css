@@ -518,32 +518,277 @@ UPDATES SECTION
   transform: translateX(2px);
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
+/* =========================================================
+MOBILE RESPONSIVE OPTIMIZATIONS
+======================================================= */
+
+/* Mobile Navigation Improvements */
+@media (max-width: 768px) {
+  .yl-nav {
+    padding: 12px 16px;
+    margin: 0 8px;
+  }
+
+  .yl-logo {
+    font-size: 1.1rem;
+  }
+
+  #mobileMenu {
+    top: 64px;
+    margin: 0 8px;
+    width: calc(100vw - 32px);
+  }
+
+  .yl-mobile-link {
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
+}
+
+/* Hero Section Mobile Optimization */
+@media (max-width: 768px) {
+  .yl-hero {
+    padding: 60px 16px 40px;
+    min-height: 60vh;
+  }
+
+  .yl-hero-inner {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .yl-title {
+    font-size: clamp(28px, 8vw, 48px);
+    line-height: 1.1;
+    max-width: none;
+  }
+
+  .yl-subtitle {
+    font-size: 16px;
+    max-width: none;
+    margin-top: 20px;
+  }
+
+  .yl-hero-actions {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+    width: 100%;
+  }
+
+  .yl-hero-actions .yl-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Mobile-specific hero adjustments for small phones */
+@media (max-width: 480px) {
+  .yl-hero {
+    padding: 40px 12px 32px;
+    min-height: 55vh;
+  }
+
+  .yl-hero-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .yl-title {
+    font-size: clamp(24px, 9vw, 40px);
+  }
+
+  .yl-subtitle {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+/* Features Section Mobile Optimization */
+@media (max-width: 768px) {
+  .yl-features-section {
+    width: calc(100vw - 32px);
+    margin: 40px 16px;
+    border-radius: 20px;
+  }
+
+  .yl-features-container {
+    padding: 24px 20px;
+    padding-left: 20px;
+  }
+
+  .yl-features-title {
+    font-size: clamp(20px, 6vw, 28px);
+    text-align: center;
+  }
+
+  .yl-features-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .yl-features-subtitle {
+    text-align: center;
+    font-size: 15px;
+    max-width: none;
+  }
+
   .yl-features-grid {
-    gap: 1rem;
+    gap: 16px;
+    margin-top: 24px;
   }
 
   .yl-feature-card--enhanced {
-    padding: 1.5rem;
+    padding: 20px 16px;
+    text-align: center;
   }
 
-  .yl-update-card {
-    padding: 1.25rem;
+  .yl-feature-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
   }
 
+  .yl-feature-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .yl-feature-desc {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* Updates Section Mobile Optimization */
+@media (max-width: 768px) {
+  .yl-updates-section {
+    width: calc(100vw - 32px);
+    margin: 40px 16px;
+    border-radius: 20px;
+  }
+
+  .yl-updates-container {
+    padding: 24px 20px;
+    padding-left: 20px;
+  }
+
+  .yl-updates-header h2 {
+    font-size: clamp(20px, 6vw, 28px);
+    text-align: center;
+  }
+
+  .yl-updates-grid {
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .yl-update-card,
   .yl-update-card--major {
-    padding: 1.5rem;
+    padding: 20px 16px;
+  }
+
+  .yl-update-title {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .yl-update-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 8px;
+  }
+
+  .yl-update-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .yl-update-progress {
+    margin-top: 16px;
+  }
+
+  .yl-update-link {
+    font-size: 14px;
+    padding: 8px 12px;
+    margin-top: 12px;
+  }
+}
+
+/* Small mobile phones optimization */
+@media (max-width: 480px) {
+  .yl-features-section,
+  .yl-updates-section {
+    width: calc(100vw - 24px);
+    margin: 32px 12px;
+    border-radius: 16px;
   }
 
   .yl-features-container,
   .yl-updates-container {
-    padding: 20px;
-    padding-left: 20px;
+    padding: 20px 16px;
+    padding-left: 16px;
   }
 
-  .yl-hero-inner {
-    padding-left: 20px;
+  .yl-feature-card--enhanced,
+  .yl-update-card,
+  .yl-update-card--major {
+    padding: 16px 12px;
+  }
+
+  .yl-features-title,
+  .yl-updates-header h2 {
+    font-size: clamp(18px, 7vw, 24px);
+  }
+
+  .yl-features-subtitle {
+    font-size: 14px;
+  }
+
+  .yl-feature-title,
+  .yl-update-title {
+    font-size: 1rem;
+  }
+
+  .yl-feature-desc,
+  .yl-update-desc {
+    font-size: 13px;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+  .yl-btn {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+
+  .yl-feature-card--enhanced,
+  .yl-update-card {
+    cursor: default;
+  }
+
+  /* Disable hover effects on mobile */
+  .yl-feature-card--enhanced:hover,
+  .yl-update-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .yl-feature-card--enhanced:hover .yl-feature-icon {
+    transform: none;
+  }
+}
+
+/* Footer mobile optimization */
+@media (max-width: 768px) {
+  .yl-footer {
+    padding: 16px;
+    font-size: 14px;
+    text-align: center;
   }
 }
 
