@@ -19,17 +19,19 @@ HOME HERO (kept)
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 3rem;
+    padding: min(8vw, 100px) 32px 64px;
   }
   
   .yl-hero-inner {
     flex: 1;
-    max-width: 60%;
+    max-width: 55%;
+    padding-left: 2rem;
   }
   
   .yl-hero-image {
     flex: 0 0 40%;
-    max-width: 480px;
+    max-width: 450px;
     position: relative;
     z-index: -1;
     transform: translateX(-70px) translateY(-15px);
@@ -53,6 +55,11 @@ HOME HERO (kept)
 
 /* Large Desktop: Even more control over image positioning */
 @media (min-width: 1200px) {
+  .yl-hero {
+    gap: 4rem;
+    padding: min(8vw, 100px) 48px 64px;
+  }
+  
   .yl-hero-image {
     flex: 0 0 38%;
     max-width: 450px;
@@ -167,6 +174,68 @@ HOME HERO (kept)
 
 .yl-hero-actions .yl-btn:nth-child(2) {
   animation-delay: 1.4s;
+}
+
+/* =========================================================
+KEYFRAME ANIMATIONS
+======================================================= */
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes aurora-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grid-fade {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 /* =========================================================
@@ -610,32 +679,44 @@ MOBILE RESPONSIVE OPTIMIZATIONS
 @media (max-width: 768px) {
   .yl-nav {
     padding: 12px 16px;
-    margin: 0 8px;
+    margin: 0 16px;
+    width: calc(100vw - 32px);
+    height: 56px;
+    border-radius: 16px;
   }
 
   .yl-logo {
-    font-size: 1.1rem;
+    font-size: 18px;
   }
 
   #mobileMenu {
-    top: 64px;
-    margin: 0 8px;
+    top: 70px;
+    left: 16px;
+    right: 16px;
     width: calc(100vw - 32px);
+    z-index: 1000;
   }
 
   .yl-mobile-link {
     padding: 14px 16px;
-    font-size: 1rem;
+    font-size: 16px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
   }
 }
 
 /* Hero Section Mobile Optimization */
 @media (max-width: 768px) {
   .yl-hero {
-    padding: 60px 16px 40px;
-    min-height: 70vh;
-    display: grid;
-    place-items: center;
+    padding: 40px 16px;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   
   /* Hide hero image on mobile */
@@ -645,29 +726,32 @@ MOBILE RESPONSIVE OPTIMIZATIONS
 
   .yl-hero-inner {
     width: 100%;
-    padding: 0 16px;
+    max-width: 100%;
+    padding: 0;
     text-align: center;
     align-items: center;
   }
 
   .yl-title {
-    font-size: clamp(28px, 8vw, 48px);
+    font-size: clamp(32px, 8vw, 52px);
     line-height: 1.1;
     max-width: none;
     text-align: center;
+    margin: 0 0 1.5rem 0;
   }
 
   .yl-subtitle {
-    font-size: 16px;
-    max-width: none;
-    margin: 20px auto 0;
+    font-size: clamp(16px, 4vw, 18px);
+    max-width: 90%;
+    margin: 0 auto 2rem auto;
     text-align: center;
+    line-height: 1.6;
   }
 
   .yl-hero-actions {
     flex-direction: column;
-    gap: 12px;
-    margin-top: 24px;
+    gap: 1rem;
+    margin-top: 2rem;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -675,10 +759,11 @@ MOBILE RESPONSIVE OPTIMIZATIONS
 
   .yl-hero-actions .yl-btn {
     width: 100%;
-    max-width: 280px;
+    max-width: 300px;
     justify-content: center;
-    padding: 14px 20px;
+    padding: 16px 24px;
     font-size: 16px;
+    min-height: 48px;
   }
 }
 

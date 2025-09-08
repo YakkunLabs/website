@@ -339,7 +339,8 @@ MOBILE RESPONSIVE IMPROVEMENTS FOR GLOBALS
     width: calc(100vw - 32px);
     margin: 0 16px;
     height: 56px;
-    padding: 0 12px;
+    padding: 0 16px;
+    border-radius: 16px;
   }
 
   .yl-logo {
@@ -347,16 +348,19 @@ MOBILE RESPONSIVE IMPROVEMENTS FOR GLOBALS
   }
 
   #mobileMenu {
-    top: 60px;
+    top: 64px;
     left: 16px;
     right: 16px;
     width: calc(100vw - 32px);
   }
 
   .yl-mobile-link {
-    padding: 12px 16px;
-    font-size: 15px;
+    padding: 14px 16px;
+    font-size: 16px;
     border-radius: 12px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
   }
 
   .yl-btn {
@@ -364,6 +368,7 @@ MOBILE RESPONSIVE IMPROVEMENTS FOR GLOBALS
     padding: 0 20px;
     font-size: 15px;
     border-radius: 12px;
+    min-height: 44px;
   }
 
   .yl-btn-connect {

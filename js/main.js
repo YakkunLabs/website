@@ -194,7 +194,14 @@ style.textContent = `
 
     /* Mobile menu overlay */
     #mobileMenu {
-      z-index: 100;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+    
+    #mobileMenu .bg-white {
+      background: rgba(255, 255, 255, 0.98) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
     }
 
     /* Improve mobile text readability */
