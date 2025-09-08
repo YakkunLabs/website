@@ -199,6 +199,12 @@
       overflow: hidden !important;
     }
     
+    /* Mobile menu styling */
+    #mobileMenu .bg-white {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    
     .yl-mobile-link {
       display: block !important;
       padding: 0.75rem 1rem;
@@ -208,6 +214,7 @@
       min-height: 44px;
       border-radius: 8px;
       transition: background-color 0.2s ease;
+      border-bottom: 1px solid #f0f0f0;
     }
     
     .yl-mobile-link:hover {
@@ -217,6 +224,11 @@
     .yl-mobile-link.is-active {
       background-color: #fef3c7;
       color: #92400e;
+      font-weight: 700;
+    }
+    
+    .yl-mobile-link:last-child {
+      border-bottom: none;
     }
     
     /* RESPONSIVE BREAKPOINTS */
@@ -416,7 +428,7 @@
   <header class="sticky top-3 z-50 flex justify-center px-0">
     <nav class="yl-nav">
       <a href="./index.html" class="flex items-center gap-2 shrink-0">
-        <img src="./logo.png" class="h-7 w-7 rounded-md object-contain" alt="YakkunLabs logo" />
+        <img src="./logo.png" class="h-8 w-8 rounded-md object-contain" alt="YakkunLabs logo" />
         <span class="yl-logo">YakkunLabs</span>
       </a>
       <ul class="hidden md:flex items-center gap-1">
@@ -428,7 +440,7 @@
       </ul>
       <div class="flex items-center gap-2">
         <a href="./game.html" class="yl-btn yl-btn-connect hidden sm:inline-flex">Play / Demo</a>
-        <button id="navToggle" class="md:hidden inline-flex h-10 w-10 items-center justify-content rounded-xl border border-edge" aria-label="Toggle menu" aria-controls="mobileMenu" aria-expanded="false">
+        <button id="navToggle" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-edge" aria-label="Toggle menu" aria-controls="mobileMenu" aria-expanded="false">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
         </button>
       </div>
@@ -436,7 +448,7 @@
   </header>
 
   <!-- Mobile Menu -->
-  <div id="mobileMenu" class="md:hidden hidden">
+  <div id="mobileMenu" class="md:hidden hidden fixed top-20 left-4 right-4 z-50">
     <div class="bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden backdrop-blur-sm">
       <a href="./index.html" class="yl-mobile-link is-active">Home</a>
       <a href="./game.html" class="yl-mobile-link">Game</a>
