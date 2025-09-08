@@ -28,17 +28,17 @@ HOME HERO (kept)
   }
   
   .yl-hero-image {
-    flex: 0 0 30%;
-    max-width: 320px;
+    flex: 0 0 40%;
+    max-width: 480px;
     position: relative;
     z-index: -1;
-    transform: translateX(80px) translateY(-15px);
+    transform: translateX(-70px) translateY(-15px);
   }
   
   .yl-hero-image img {
     width: 100%;
     height: auto;
-    max-height: 500px;
+    max-height: 600px;
     border-radius: 12px;
     transition: transform 0.3s ease;
     display: block;
@@ -54,9 +54,9 @@ HOME HERO (kept)
 /* Large Desktop: Even more control over image positioning */
 @media (min-width: 1200px) {
   .yl-hero-image {
-    flex: 0 0 28%;
-    max-width: 300px;
-    transform: translateX(100px) translateY(-20px);
+    flex: 0 0 38%;
+    max-width: 450px;
+    transform: translateX(-50px) translateY(-20px);
   }
 }
 
