@@ -13,13 +13,49 @@ HOME HERO (kept)
   background: transparent;
 }
 
-.yl-hero-bg {
+/* Desktop: Show hero layout with right-side image */
+@media (min-width: 769px) {
+  .yl-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .yl-hero-inner {
+    flex: 1;
+    max-width: 60%;
+  }
+  
+  .yl-hero-image {
+    flex: 0 0 40%;
+    max-width: 450px;
+    position: relative;
+    z-index: -1;
+    transform: translateX(-5cm) translateY(-20px);
+  }
+  
+  .yl-hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    display: block;
+    opacity: 0.9;
+  }
+  
+  .yl-hero-image:hover img {
+    transform: scale(1.02);
+  }
+}
+
+/* .yl-hero-bg {
   position: absolute;
   inset: 0;
   z-index: -2;
   background: url("../public/bg_3.png") center/cover no-repeat;
   opacity: 0.95;
-}
+} */
 
 .yl-hero-aurora {
   position: absolute;
@@ -550,12 +586,20 @@ MOBILE RESPONSIVE OPTIMIZATIONS
   .yl-hero {
     padding: 60px 16px 40px;
     min-height: 60vh;
+    display: grid;
+    place-items: stretch;
+  }
+  
+  /* Hide hero image on mobile */
+  .yl-hero-image {
+    display: none;
   }
 
   .yl-hero-inner {
     width: 100%;
     padding-left: 16px;
     padding-right: 16px;
+    max-width: none;
   }
 
   .yl-title {
