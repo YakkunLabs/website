@@ -261,14 +261,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 0;
+      padding: 2rem 1rem;
       overflow: hidden;
     }
     
     @media (min-width: 768px) {
       .yl-hero {
-        min-height: 80dvh;
-        padding: 4rem 0;
+        min-height: 85dvh;
+        padding: 4rem 2rem;
       }
     }
     
@@ -282,14 +282,9 @@
       position: relative;
     }
     
-    @media (min-width: 480px) {
-      .yl-hero-inner {
-        padding: 0 1.5rem;
-      }
-    }
-    
     @media (min-width: 768px) {
       .yl-hero-inner {
+        text-align: left;
         padding: 0 2rem;
       }
     }
@@ -327,13 +322,22 @@
     /* RESPONSIVE SECTIONS */
     .yl-section {
       width: 100%;
-      padding: 2rem 0;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem 1rem;
       overflow: hidden;
     }
     
     @media (min-width: 768px) {
       .yl-section {
-        padding: 4rem 0;
+        margin: 4rem auto;
+        padding: 3rem 2rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .yl-section {
+        padding: 4rem 3rem;
       }
     }
     
@@ -356,6 +360,7 @@
     @media (min-width: 1024px) {
       .yl-features-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
       }
     }
     
@@ -370,20 +375,24 @@
     .yl-updates-section {
       background: linear-gradient(135deg, #ffffff 0%, #fef7f0 100%);
       border: 2px solid var(--edge-soft, rgba(0,0,0,0.1));
-      margin: 2rem 0;
+      margin: 2rem auto;
       border-radius: 20px;
-      padding: 1.5rem;
+      padding: 2rem 1rem;
       width: 100%;
       max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
     }
     
     @media (min-width: 768px) {
       .yl-updates-section {
         margin: 4rem auto;
         border-radius: 24px;
-        padding: 2rem;
+        padding: 3rem 2rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .yl-updates-section {
+        padding: 4rem 3rem;
       }
     }
     
@@ -467,14 +476,13 @@
   <!-- VALUE -->
   <main>
     <!-- Features Section -->
-    <section class="yl-section yl-features-section">
-      <div class="yl-container">
-        <div class="yl-features-header">
-          <h2 class="yl-h2 yl-features-title">Explore & Experience Web3 Earning Models</h2>
-          <p class="yl-features-subtitle">Compare tokenized rewards with classic monetization. See how royalties, referrals, and staking fit real gameplay loops.</p>
-        </div>
-        
-        <div class="yl-features-grid">
+    <section class="yl-section">
+      <div class="yl-features-header">
+        <h2 class="yl-h2 yl-features-title">Explore & Experience Web3 Earning Models</h2>
+        <p class="yl-features-subtitle">Compare tokenized rewards with classic monetization. See how royalties, referrals, and staking fit real gameplay loops.</p>
+      </div>
+      
+      <div class="yl-features-grid">
         <!-- Feature Card 1 -->
         <div class="yl-feature-card yl-feature-card--enhanced">
           <div class="yl-feature-icon-wrapper">
@@ -520,17 +528,15 @@
           <div class="yl-feature-glow"></div>
         </div>
       </div>
-      </div>
     </section>
 
 <!-- Updates Section -->
-<section class="yl-section yl-updates-section">
-  <div class="yl-container">
-    <div class="yl-updates-header">
-      <h2 class="yl-h2">Yakkun Labs Updates</h2>
-    </div>
-    
-    <div class="yl-updates-grid">
+<section class="yl-updates-section">
+  <div class="yl-updates-header">
+    <h2 class="yl-h2">Yakkun Labs Updates</h2>
+  </div>
+  
+  <div class="yl-updates-grid">
     <!-- Update Card 1 -->
     <div class="yl-update-card yl-update-card--major">
       <div class="yl-update-badge yl-update-badge--update">UPDATE</div>
@@ -561,7 +567,6 @@
       <p class="yl-update-desc">Integrate wallets, mint NFTs, and interact with tokens directly in your game build.</p>
       <a href="#" class="yl-update-link">Learn More</a>
     </div>
-  </div>
   </div>
 </section>
 

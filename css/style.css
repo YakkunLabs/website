@@ -28,11 +28,11 @@ HOME HERO (kept)
   }
   
   .yl-hero-image {
-    flex: 0 0 40%;
-    max-width: 450px;
+    flex: 0 0 35%;
+    max-width: 400px;
     position: relative;
     z-index: -1;
-    transform: translateX(20px) translateY(-15px);
+    transform: translateX(50px) translateY(-15px);
   }
   
   .yl-hero-image img {
@@ -92,9 +92,18 @@ HOME HERO (kept)
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  padding-left: 8%;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+@media (min-width: 769px) {
+  .yl-hero-inner {
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 8%;
+    padding-right: 2rem;
+  }
 }
 
 .yl-title {
@@ -159,17 +168,18 @@ ENHANCED FEATURES SECTION
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
-  /* Override default yl-section styles for proper alignment */
-  width: min(1200px, 96vw);
+  width: 100%;
+  max-width: min(1200px, 96vw);
   margin: 64px auto;
   border-radius: 24px;
-  padding: 0;
+  padding: 28px 1rem;
 }
 
-.yl-features-container {
-  padding: 28px;
-  padding-left: calc(8% + 28px);
-  max-width: 100%;
+@media (min-width: 769px) {
+  .yl-features-section {
+    padding: 28px;
+    padding-left: calc(8% + 28px);
+  }
 }
 
 .yl-features-section::before {
@@ -184,10 +194,16 @@ ENHANCED FEATURES SECTION
 }
 
 .yl-features-header {
-  text-align: left;
+  text-align: center;
   margin-bottom: 3rem;
   position: relative;
   z-index: 1;
+}
+
+@media (min-width: 769px) {
+  .yl-features-header {
+    text-align: left;
+  }
 }
 
 .yl-features-title {
@@ -201,21 +217,35 @@ ENHANCED FEATURES SECTION
 .yl-features-title::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
   bottom: -10px;
-  transform: none;
+  transform: translateX(-50%);
   width: 80px;
   height: 4px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2), #ff9f45);
+}
+
+@media (min-width: 769px) {
+  .yl-features-title::after {
+    left: 0;
+    transform: none;
+  }
 }
 
 .yl-features-subtitle {
   color: var(--ink-muted);
   font-size: clamp(14px, 2vw, 18px);
   max-width: 65ch;
-  margin: 0;
+  margin: 0 auto;
   line-height: 1.6;
-  text-align: left;
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .yl-features-subtitle {
+    text-align: left;
+    margin: 0;
+  }
 }
 
 .yl-features-grid {
@@ -354,17 +384,18 @@ UPDATES SECTION
   margin-top: 4rem;
   position: relative;
   overflow: hidden;
-  /* Override default yl-section styles for proper alignment */
-  width: min(1200px, 96vw);
+  width: 100%;
+  max-width: min(1200px, 96vw);
   margin: 64px auto;
   border-radius: 24px;
-  padding: 0;
+  padding: 28px 1rem;
 }
 
-.yl-updates-container {
-  padding: 28px;
-  padding-left: calc(8% + 28px);
-  max-width: 100%;
+@media (min-width: 769px) {
+  .yl-updates-section {
+    padding: 28px;
+    padding-left: calc(8% + 28px);
+  }
 }
 
 .yl-updates-section::after {
@@ -382,7 +413,13 @@ UPDATES SECTION
   margin-bottom: 2.5rem;
   position: relative;
   z-index: 1;
-  text-align: left;
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .yl-updates-header {
+    text-align: left;
+  }
 }
 
 .yl-updates-grid {
@@ -585,9 +622,9 @@ MOBILE RESPONSIVE OPTIMIZATIONS
 @media (max-width: 768px) {
   .yl-hero {
     padding: 60px 16px 40px;
-    min-height: 60vh;
+    min-height: 70vh;
     display: grid;
-    place-items: stretch;
+    place-items: center;
   }
   
   /* Hide hero image on mobile */
@@ -597,21 +634,23 @@ MOBILE RESPONSIVE OPTIMIZATIONS
 
   .yl-hero-inner {
     width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
-    max-width: none;
+    padding: 0 16px;
+    text-align: center;
+    align-items: center;
   }
 
   .yl-title {
     font-size: clamp(28px, 8vw, 48px);
     line-height: 1.1;
     max-width: none;
+    text-align: center;
   }
 
   .yl-subtitle {
     font-size: 16px;
     max-width: none;
-    margin-top: 20px;
+    margin: 20px auto 0;
+    text-align: center;
   }
 
   .yl-hero-actions {
@@ -619,10 +658,13 @@ MOBILE RESPONSIVE OPTIMIZATIONS
     gap: 12px;
     margin-top: 24px;
     width: 100%;
+    align-items: center;
+    justify-content: center;
   }
 
   .yl-hero-actions .yl-btn {
     width: 100%;
+    max-width: 280px;
     justify-content: center;
     padding: 14px 20px;
     font-size: 16px;
@@ -655,13 +697,9 @@ MOBILE RESPONSIVE OPTIMIZATIONS
 @media (max-width: 768px) {
   .yl-features-section {
     width: calc(100vw - 32px);
-    margin: 40px 16px;
+    margin: 40px auto;
     border-radius: 20px;
-  }
-
-  .yl-features-container {
     padding: 24px 20px;
-    padding-left: 20px;
   }
 
   .yl-features-title {
@@ -678,6 +716,7 @@ MOBILE RESPONSIVE OPTIMIZATIONS
     text-align: center;
     font-size: 15px;
     max-width: none;
+    margin: 0 auto;
   }
 
   .yl-features-grid {
@@ -711,13 +750,9 @@ MOBILE RESPONSIVE OPTIMIZATIONS
 @media (max-width: 768px) {
   .yl-updates-section {
     width: calc(100vw - 32px);
-    margin: 40px 16px;
+    margin: 40px auto;
     border-radius: 20px;
-  }
-
-  .yl-updates-container {
     padding: 24px 20px;
-    padding-left: 20px;
   }
 
   .yl-updates-header h2 {
