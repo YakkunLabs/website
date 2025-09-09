@@ -243,14 +243,11 @@ ENHANCED FEATURES SECTION
 ======================================================= */
 
 .yl-features-section {
-  background: linear-gradient(135deg, #ffffff 0%, #fffbf7 100%);
-  border: 2px solid var(--edge-soft);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  background: transparent;
   position: relative;
   overflow: hidden;
   width: min(1200px, 96vw);
   margin: 64px auto;
-  border-radius: 24px;
   padding: 28px 1rem;
 }
 
@@ -273,16 +270,10 @@ ENHANCED FEATURES SECTION
 }
 
 .yl-features-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 3rem;
   position: relative;
   z-index: 1;
-}
-
-@media (min-width: 769px) {
-  .yl-features-header {
-    text-align: left;
-  }
 }
 
 .yl-features-title {
@@ -296,35 +287,21 @@ ENHANCED FEATURES SECTION
 .yl-features-title::after {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 0;
   bottom: -10px;
-  transform: translateX(-50%);
+  transform: none;
   width: 80px;
   height: 4px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2), #ff9f45);
-}
-
-@media (min-width: 769px) {
-  .yl-features-title::after {
-    left: 0;
-    transform: none;
-  }
 }
 
 .yl-features-subtitle {
   color: var(--ink-muted);
   font-size: clamp(14px, 2vw, 18px);
   max-width: 65ch;
-  margin: 0 auto;
+  margin: 0;
   line-height: 1.6;
-  text-align: center;
-}
-
-@media (min-width: 769px) {
-  .yl-features-subtitle {
-    text-align: left;
-    margin: 0;
-  }
+  text-align: left;
 }
 
 .yl-features-grid {
@@ -344,8 +321,8 @@ ENHANCED FEATURES SECTION
 
 /* Enhanced Feature Cards */
 .yl-feature-card--enhanced {
-  background: linear-gradient(135deg, #ffffff 0%, #fffaf5 100%);
-  border: 2px solid var(--edge);
+  background: transparent;
+  border: none;
   border-radius: 20px;
   padding: 2rem;
   position: relative;
@@ -458,15 +435,13 @@ UPDATES SECTION
 ======================================================= */
 
 .yl-updates-section {
-  background: linear-gradient(135deg, #ffffff 0%, #fef7f0 100%);
-  border: 2px solid var(--edge-soft);
+  background: transparent;
   margin-top: 4rem;
   position: relative;
   overflow: hidden;
   width: 100%;
   max-width: min(1200px, 96vw);
   margin: 64px auto;
-  border-radius: 24px;
   padding: 28px 1rem;
 }
 
@@ -492,13 +467,7 @@ UPDATES SECTION
   margin-bottom: 2.5rem;
   position: relative;
   z-index: 1;
-  text-align: center;
-}
-
-@media (min-width: 769px) {
-  .yl-updates-header {
-    text-align: left;
-  }
+  text-align: left;
 }
 
 .yl-updates-grid {
@@ -520,8 +489,8 @@ UPDATES SECTION
 }
 
 .yl-update-card {
-  background: linear-gradient(135deg, #ffffff 0%, #fffbf7 100%);
-  border: 2px solid var(--edge);
+  background: transparent;
+  border: none;
   border-radius: 18px;
   padding: 1.5rem;
   position: relative;
@@ -552,7 +521,7 @@ UPDATES SECTION
 
 .yl-update-card--major {
   padding: 2rem;
-  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  background: transparent;
 }
 
 .yl-update-badge {
