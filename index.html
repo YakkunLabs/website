@@ -43,6 +43,12 @@
       margin: 0 0 1rem 0;
     }
     
+    @media (min-width: 768px) {
+      .yl-title {
+        text-align: left;
+      }
+    }
+    
     .yl-subtitle {
       font-size: clamp(1rem, 2.5vw, 1.25rem) !important;
       line-height: 1.5 !important;
@@ -50,10 +56,23 @@
       margin: 0 0 2rem 0;
     }
     
+    @media (min-width: 768px) {
+      .yl-subtitle {
+        text-align: left;
+      }
+    }
+    
     .yl-h2 {
       font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
       line-height: 1.2 !important;
       margin: 0 0 1rem 0;
+      text-align: center;
+    }
+    
+    @media (min-width: 768px) {
+      .yl-h2 {
+        text-align: left;
+      }
     }
     
     /* RESPONSIVE CONTAINER */
@@ -79,6 +98,19 @@
     @media (min-width: 1024px) {
       .yl-container {
         padding: 0 3rem;
+      }
+    }
+    
+    /* CONTAINER WRAPPERS */
+    .yl-features-container,
+    .yl-updates-container {
+      width: 100%;
+    }
+    
+    @media (min-width: 768px) {
+      .yl-features-container,
+      .yl-updates-container {
+        padding-left: 0;
       }
     }
     
@@ -266,6 +298,28 @@
         right: 1rem;
         z-index: 1000;
       }
+      
+      /* Improve mobile text readability */
+      body {
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+             text-size-adjust: 100%;
+      }
+      
+      /* Better mobile touch targets */
+      .yl-link,
+      .yl-mobile-link,
+      .yl-btn {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+      
+      /* Prevent zoom on input focus for iOS */
+      input,
+      textarea,
+      select {
+        font-size: 16px;
+      }
     }
     
     /* RESPONSIVE HERO SECTION */
@@ -345,8 +399,7 @@
     
     /* RESPONSIVE SECTIONS */
     .yl-section {
-      width: 100%;
-      max-width: 1200px;
+      width: min(1200px, 96vw);
       margin: 3rem auto;
       padding: 2rem 1rem;
       overflow: hidden;
@@ -356,12 +409,14 @@
       .yl-section {
         margin: 4rem auto;
         padding: 3rem 2rem;
+        padding-left: calc(8% + 2rem);
       }
     }
     
     @media (min-width: 1024px) {
       .yl-section {
         padding: 4rem 3rem;
+        padding-left: calc(8% + 3rem);
         margin: 5rem auto;
       }
     }
@@ -403,8 +458,7 @@
       margin: 3rem auto;
       border-radius: 20px;
       padding: 2rem 1rem;
-      width: 100%;
-      max-width: 1200px;
+      width: min(1200px, 96vw);
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
     
@@ -413,12 +467,14 @@
         margin: 4rem auto;
         border-radius: 24px;
         padding: 3rem 2rem;
+        padding-left: calc(8% + 2rem);
       }
     }
     
     @media (min-width: 1024px) {
       .yl-updates-section {
         padding: 4rem 3rem;
+        padding-left: calc(8% + 3rem);
         margin: 5rem auto;
       }
     }
@@ -436,9 +492,45 @@
         gap: 2rem;
       }
     }
+    
+    /* MOBILE ENHANCEMENTS */
+    @media (max-width: 767px) {
+      /* Optimize mobile spacing */
+      .yl-section,
+      .yl-updates-section {
+        margin: 2rem auto;
+        padding: 1.5rem 1rem;
+      }
+      
+      /* Mobile typography improvements */
+      .yl-features-title,
+      .yl-updates-header h2 {
+        font-size: clamp(1.5rem, 6vw, 2rem) !important;
+        line-height: 1.2 !important;
+      }
+      
+      .yl-features-subtitle {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+      }
+      
+      /* Mobile card improvements */
+      .yl-feature-card--enhanced,
+      .yl-update-card {
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+      }
+      
+      /* Disable hover effects on mobile */
+      .yl-feature-card--enhanced:hover,
+      .yl-update-card:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
   </style>
-  <script type="module" crossorigin src="./assets/main.B0y-jtV_.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/main.9IDzKpR3.css">
+  <script type="module" crossorigin src="./assets/main.qYHek-a6.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main.iUUQM0lL.css">
 </head>
 <body class="bg-page text-ink antialiased">
   <!-- NAV -->
@@ -506,12 +598,13 @@
   <main>
     <!-- Features Section -->
     <section class="yl-section">
-      <div class="yl-features-header">
-        <h2 class="yl-h2 yl-features-title">Explore & Experience Web3 Earning Models</h2>
-        <p class="yl-features-subtitle">Compare tokenized rewards with classic monetization. See how royalties, referrals, and staking fit real gameplay loops.</p>
-      </div>
-      
-      <div class="yl-features-grid">
+      <div class="yl-features-container">
+        <div class="yl-features-header">
+          <h2 class="yl-h2 yl-features-title">Explore & Experience Web3 Earning Models</h2>
+          <p class="yl-features-subtitle">Compare tokenized rewards with classic monetization. See how royalties, referrals, and staking fit real gameplay loops.</p>
+        </div>
+        
+        <div class="yl-features-grid">
         <!-- Feature Card 1 -->
         <div class="yl-feature-card yl-feature-card--enhanced">
           <div class="yl-feature-icon-wrapper">
@@ -557,13 +650,15 @@
           <div class="yl-feature-glow"></div>
         </div>
       </div>
+    </div>
     </section>
 
 <!-- Updates Section -->
 <section class="yl-updates-section">
-  <div class="yl-updates-header">
-    <h2 class="yl-h2">Yakkun Labs Updates</h2>
-  </div>
+  <div class="yl-updates-container">
+    <div class="yl-updates-header">
+      <h2 class="yl-h2">Yakkun Labs Updates</h2>
+    </div>
   
   <div class="yl-updates-grid">
     <!-- Update Card 1 -->
@@ -597,6 +692,7 @@
       <a href="#" class="yl-update-link">Learn More</a>
     </div>
   </div>
+</div>
 </section>
 
   </main>
