@@ -10,6 +10,18 @@ import '../css/game.css';
 const y = document.getElementById('year');
 if (y) y.textContent = new Date().getFullYear();
 
+// Loading state management
+document.addEventListener('DOMContentLoaded', () => {
+  // Remove loading class if it exists
+  document.body.classList.remove('loading');
+  
+  // Add loaded class for animations
+  document.body.classList.add('loaded');
+});
+
+// Show loading state initially
+document.body.classList.add('loading');
+
 // Mobile navigation toggle functionality with enhanced mobile support
 const toggle = document.getElementById('navToggle');
 const menu = document.getElementById('mobileMenu');
@@ -150,6 +162,29 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add CSS for animations and mobile improvements
 const style = document.createElement('style');
 style.textContent = `
+  /* Loading states */
+  .loading {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .loaded {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Skeleton loading for images */
+  .skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+  
+  @keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
   .yl-btn {
     position: relative;
     overflow: hidden;

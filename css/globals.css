@@ -1034,7 +1034,7 @@ MOBILE RESPONSIVE IMPROVEMENTS - STANDARDIZED BREAKPOINTS
     font-size: 16px;
     border-radius: 14px;
     min-height: 50px;
-  }
+  {"tasks": [{"task_id": "check_console_errors", "status": "IN_PROGRESS"}]}}
 
   .yl-social {
     height: 46px;
