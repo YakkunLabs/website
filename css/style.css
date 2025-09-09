@@ -1028,7 +1028,7 @@ COMMUNITY — no images, bold title + accent
 ======================================================= */
 
 .yl-hero-slim {
-  padding: 24px 0;
+  padding: 12px 0;
 }
 
 .yl-hero-slim__inner {
@@ -1037,7 +1037,7 @@ COMMUNITY — no images, bold title + accent
   background: #fff;
   border: 1px solid var(--edge);
   border-radius: 24px;
-  padding: 24px;
+  padding: 16px;
   text-align: center;
 }
 
