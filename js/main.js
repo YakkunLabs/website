@@ -239,11 +239,6 @@ style.textContent = `
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
     }
 
-    /* Improve mobile text readability */
-    body {
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-    }
   }
 
   /* Reduce motion for users who prefer it */
@@ -257,4 +252,26 @@ style.textContent = `
     }
   }
 `;
-document.head.appendChild(style);
+
+  // Add text size adjust for cross-browser compatibility
+  // This ensures consistent text sizing across different browsers and devices
+  const textStyle = document.createElement('style');
+  textStyle.innerHTML = `
+    /* Cross-browser text size adjustment for better mobile readability */
+    body {
+      -webkit-text-size-adjust: 100%; /* Safari and Chrome - WebKit browsers */
+      -moz-text-size-adjust: 100%;    /* Firefox - Gecko browsers */
+      -ms-text-size-adjust: 100%;     /* Internet Explorer - Trident engine */
+      text-size-adjust: 100%;         /* Standard property - Modern browsers */
+    }
+    
+    html {
+      -webkit-text-size-adjust: 100%; /* Safari and Chrome - WebKit browsers */
+      -moz-text-size-adjust: 100%;    /* Firefox - Gecko browsers */
+      -ms-text-size-adjust: 100%;     /* Internet Explorer - Trident engine */
+      text-size-adjust: 100%;         /* Standard property - Modern browsers */
+    }
+  `;
+  document.head.appendChild(textStyle);
+  
+  document.head.appendChild(style);

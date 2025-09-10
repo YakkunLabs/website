@@ -232,8 +232,6 @@
     @media (min-width: 768px) {
       .yl-link {
         padding: 10px 14px;
-        min-height: auto;
-        min-width: auto;
         display: inline-block !important;
       }
     }
@@ -354,10 +352,12 @@
         z-index: 1000;
       }
       
-      /* Improve mobile text readability */
+      /* Improve mobile text readability - Cross-browser text size adjustment */
       body {
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%; /* Safari and Chrome - WebKit browsers */
+        -moz-text-size-adjust: 100%;    /* Firefox - Gecko browsers */
+        -ms-text-size-adjust: 100%;     /* Internet Explorer - Trident engine */
+        text-size-adjust: 100%;         /* Standard property - Modern browsers */
       }
       
       /* Better mobile touch targets */

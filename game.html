@@ -97,8 +97,6 @@
     @media (min-width: 768px) {
       .yl-link {
         padding: 10px 14px;
-        min-height: auto;
-        min-width: auto;
         display: inline-block !important;
       }
     }
@@ -209,49 +207,44 @@
 
 <body class="bg-page text-ink">
   <!-- Navigation Bar - Centered with Logo Image -->
-  <nav class="flex items-center justify-center pt-6">
-    <div class="yl-nav">
-      <!-- Logo with Image -->
-      <div class="flex items-center gap-3">
-        <img src="./img/logo.png" alt="YakkunLabs Logo" class="w-8 h-8 object-contain">
-        <div class="yl-logo">YakkunLabs</div>
+  <header class="sticky top-3 z-50 flex justify-center px-0">
+    <nav class="yl-nav">
+      <a href="./index.html" class="flex items-center gap-2 shrink-0">
+        <img src="./img/logo.png" class="h-8 w-8 rounded-md object-contain" alt="YakkunLabs logo" />
+        <span class="yl-logo">YakkunLabs</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-1">
+        <li><a class="yl-link" href="./index.html">Home</a></li>
+        <li><a class="yl-link is-active" href="./game.html">Games</a></li>
+        <li><a class="yl-link" href="./blog.html">Blog</a></li>
+        <li><a class="yl-link" href="./community.html">Community</a></li>
+        <li><a class="yl-link" href="./contact.html">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <a href="./game.html" class="yl-btn yl-btn-connect hidden sm:inline-flex">Play / Demo</a>
+        <button id="navToggle" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-edge" aria-label="Toggle menu" aria-controls="mobileMenu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+        </button>
       </div>
-
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex items-center gap-2">
-        <a href="./index.html" class="yl-link">Home</a>
-        <a href="./game.html" class="yl-link is-active">Game</a>
-        <a href="./blog.html" class="yl-link">Blog</a>
-        <a href="./community.html" class="yl-link">Community</a>
-        <a href="./contact.html" class="yl-link">Contact</a>
-        <a href="#" class="yl-btn yl-btn-connect ml-3">Play / Demo</a>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button id="navToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-expanded="false" aria-label="Toggle navigation menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- Mobile Menu -->
-  <div id="mobileMenu" class="md:hidden hidden">
-    <div class="bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden backdrop-blur-sm">
+  <div id="mobileMenu" class="md:hidden hidden fixed top-16 left-4 right-4 z-50">
+    <div class="bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden backdrop-blur-sm">
       <a href="./index.html" class="yl-mobile-link">Home</a>
-      <a href="./game.html" class="yl-mobile-link is-active">Game</a>
+      <a href="./game.html" class="yl-mobile-link is-active">Games</a>
       <a href="./blog.html" class="yl-mobile-link">Blog</a>
       <a href="./community.html" class="yl-mobile-link">Community</a>
       <a href="./contact.html" class="yl-mobile-link">Contact</a>
       <div class="p-4 border-t border-gray-200">
-        <a href="#" class="yl-btn yl-btn-connect w-full text-center">Play / Demo</a>
+        <a href="./game.html" class="yl-btn yl-btn-connect w-full text-center">Play / Demo</a>
       </div>
     </div>
   </div>
 
   <!-- Upcoming Games Section -->
-  <section class="yl-section mt-8">
+  <section class="yl-game-section">
     <div class="mb-12">
       <div class="text-center mb-8">
         <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-800 rounded-full text-sm font-bold border border-purple-200 mb-6">
@@ -260,10 +253,10 @@
           </svg>
           Coming Soon
         </div>
-        <h1 class="yl-h2 text-center text-4xl md:text-5xl font-black mb-4">
+        <h1 class="yl-h2 text-center">
           Upcoming <span class="text-gradient">Games</span>
         </h1>
-        <p class="text-ink-muted text-lg max-w-2xl mx-auto">
+        <p class="text-ink-muted text-lg max-w-2xl mx-auto mt-4">
           Get ready for our next generation of Web3 games featuring innovative mechanics and stunning gameplay.
         </p>
       </div>
@@ -271,153 +264,79 @@
 
     <div class="yl-games-grid">
       <!-- Game 1: Galactic Wanderers -->
-      <div class="yl-game-card yl-game-card--featured">
-        <div class="yl-game-image">
-          <img src="./public/img_1.png" alt="Galactic Wanderers" class="w-full h-full object-cover">
-          <div class="yl-game-overlay">
-            <div class="yl-pill">Featured</div>
-          </div>
-          <div class="yl-game-status">
-            <span class="yl-game-release">Q1 2025</span>
+      <div class="yl-game-card relative group overflow-hidden rounded-xl shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+        <div class="yl-game-image relative h-64 overflow-hidden">
+          <img src="/img_1.png" alt="Galactic Wanderers" class="w-full h-full object-cover">
+          <div class="yl-game-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="yl-game-badge absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+            NEW
           </div>
         </div>
-        <div class="yl-game-content">
-          <div class="yl-game-meta">
-            <span class="yl-game-genre">Space RPG</span>
-            <span class="yl-game-platform">PC • Mobile</span>
-          </div>
-          <h3 class="yl-game-title">Galactic Wanderers</h3>
-          <p class="yl-game-desc">
-            Explore vast galaxies, build your fleet, and engage in strategic space combat. Own your ships as NFTs and trade resources in a player-driven economy.
-          </p>
-          <div class="yl-game-features">
-            <span class="yl-game-tag">NFT Ships</span>
-            <span class="yl-game-tag">P2E Rewards</span>
-            <span class="yl-game-tag">Guild Wars</span>
-          </div>
-          <div class="yl-game-progress">
-            <div class="yl-game-progress-bar" style="width: 75%"></div>
-          </div>
-          <div class="yl-game-footer">
-            <a href="#" class="yl-btn yl-btn-explore">
-              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-              </svg>
-              Learn More
-            </a>
+        <div class="yl-game-content p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Galactic Wanderers</h3>
+          <p class="text-gray-400 mb-4">Explore distant galaxies and discover new worlds in this epic space adventure.</p>
+          <div class="yl-game-meta flex justify-between items-center">
+            <span class="text-indigo-400 font-semibold">Action RPG</span>
+            <button class="yl-play-button bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105">
+              Play Now
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Game 2: Battlefield -->
-      <div class="yl-game-card">
-        <div class="yl-game-image">
-          <img src="./public/img_2.png" alt="Battlefield" class="w-full h-full object-cover">
-          <div class="yl-game-status">
-            <span class="yl-game-release">Q2 2025</span>
-          </div>
+      <div class="yl-game-card relative group overflow-hidden rounded-xl shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+        <div class="yl-game-image relative h-64 overflow-hidden">
+          <img src="/img_2.png" alt="Battlefield" class="w-full h-full object-cover">
+          <div class="yl-game-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
-        <div class="yl-game-content">
-          <div class="yl-game-meta">
-            <span class="yl-game-genre">Strategy</span>
-            <span class="yl-game-platform">PC</span>
-          </div>
-          <h3 class="yl-game-title">Battlefield</h3>
-          <p class="yl-game-desc">
-            Command armies in tactical warfare. Build bases, manage resources, and lead your troops to victory in this strategic masterpiece.
-          </p>
-          <div class="yl-game-features">
-            <span class="yl-game-tag">RTS</span>
-            <span class="yl-game-tag">Base Building</span>
-          </div>
-          <div class="yl-game-progress">
-            <div class="yl-game-progress-bar" style="width: 45%"></div>
-          </div>
-          <div class="yl-game-footer">
-            <a href="#" class="yl-btn yl-btn-ghost">
-              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-              </svg>
-              Preview
-            </a>
+        <div class="yl-game-content p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Battlefield</h3>
+          <p class="text-gray-400 mb-4">Intense multiplayer combat in dynamic environments with destructible landscapes.</p>
+          <div class="yl-game-meta flex justify-between items-center">
+            <span class="text-red-400 font-semibold">FPS</span>
+            <button class="yl-play-button bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105">
+              Play Now
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Game 3: SpaceShooter -->
-      <div class="yl-game-card">
-        <div class="yl-game-image">
-          <img src="./public/img_3.png" alt="SpaceShooter" class="w-full h-full object-cover">
-          <div class="yl-game-status">
-            <span class="yl-game-release">Q2 2025</span>
+      <div class="yl-game-card relative group overflow-hidden rounded-xl shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+        <div class="yl-game-image relative h-64 overflow-hidden">
+          <img src="/img_3.png" alt="SpaceShooter" class="w-full h-full object-cover">
+          <div class="yl-game-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="yl-game-badge absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+            POPULAR
           </div>
         </div>
-        <div class="yl-game-content">
-          <div class="yl-game-meta">
-            <span class="yl-game-genre">Action</span>
-            <span class="yl-game-platform">PC • Mobile</span>
-          </div>
-          <h3 class="yl-game-title">SpaceShooter</h3>
-          <p class="yl-game-desc">
-            Fast-paced space combat with customizable ships and weapons. Compete in tournaments and earn tokens for your skills.
-          </p>
-          <div class="yl-game-features">
-            <span class="yl-game-tag">PvP Combat</span>
-            <span class="yl-game-tag">Tournaments</span>
-          </div>
-          <div class="yl-game-progress">
-            <div class="yl-game-progress-bar" style="width: 60%"></div>
-          </div>
-          <div class="yl-game-footer">
-            <a href="#" class="yl-btn yl-btn-ghost">
-              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-              </svg>
-              Preview
-            </a>
+        <div class="yl-game-content p-6">
+          <h3 class="text-xl font-bold text-white mb-2">SpaceShooter</h3>
+          <p class="text-gray-400 mb-4">Fast-paced space combat with customizable ships and intense boss battles.</p>
+          <div class="yl-game-meta flex justify-between items-center">
+            <span class="text-cyan-400 font-semibold">Shooter</span>
+            <button class="yl-play-button bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105">
+              Play Now
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Game 4: Ravana Dungeons -->
-      <div class="yl-game-card">
-        <div class="yl-game-image">
-          <img src="./public/img_4.png" alt="Ravana Dungeons" class="w-full h-full object-cover">
-          <div class="yl-game-overlay">
-            <div class="yl-pill yl-pill--soon">Beta Soon</div>
-          </div>
-          <div class="yl-game-status">
-            <span class="yl-game-release">Q3 2025</span>
-          </div>
+      <div class="yl-game-card relative group overflow-hidden rounded-xl shadow-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+        <div class="yl-game-image relative h-64 overflow-hidden">
+          <img src="/img_4.png" alt="Ravana Dungeons" class="w-full h-full object-cover">
+          <div class="yl-game-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
-        <div class="yl-game-content">
-          <div class="yl-game-meta">
-            <span class="yl-game-genre">Dungeon Crawler</span>
-            <span class="yl-game-platform">PC</span>
-          </div>
-          <h3 class="yl-game-title">Ravana Dungeons</h3>
-          <p class="yl-game-desc">
-            Deploy your squad, battle ancient foes, and earn seasonal rewards. Deep RPG mechanics with blockchain-based character progression.
-          </p>
-          <div class="yl-game-features">
-            <span class="yl-game-tag">Squad RPG</span>
-            <span class="yl-game-tag">Loot System</span>
-            <span class="yl-game-tag">Seasons</span>
-          </div>
-          <div class="yl-game-progress">
-            <div class="yl-game-progress-bar" style="width: 30%"></div>
-          </div>
-          <div class="yl-game-footer">
-            <a href="#" class="yl-btn yl-btn-ghost">
-              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-              </svg>
-              Preview
-            </a>
+        <div class="yl-game-content p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Ravana Dungeons</h3>
+          <p class="text-gray-400 mb-4">Dive into dark dungeons filled with mythical creatures and ancient treasures.</p>
+          <div class="yl-game-meta flex justify-between items-center">
+            <span class="text-amber-400 font-semibold">Adventure</span>
+            <button class="yl-play-button bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105">
+              Play Now
+            </button>
           </div>
         </div>
       </div>
