@@ -4,7 +4,7 @@ HOME HERO - IMPROVED ALIGNMENT WITH NAVBAR
 
 .yl-hero {
 position: relative;
-padding: min(10vw, 120px) 0 64px;
+padding: min(5vw, 60px) 0 64px; /* Reduced spacing between image and topic area */
 min-height: 72vh;
 display: grid;
 place-items: stretch;
@@ -19,8 +19,8 @@ background: transparent;
 display: flex;
 align-items: center;
 justify-content: space-between;
-gap: 2rem;
-padding: min(8vw, 100px) 0 64px;
+gap: 1rem; /* Reduced gap from 2rem to 1rem */
+padding: min(4vw, 50px) 0 64px; /* Reduced padding */
 max-width: 1200px;
 margin: 0 auto;
 padding-left: 2rem;
@@ -31,7 +31,7 @@ padding-right: 2rem;
 flex: 1;
 max-width: 55%;
 padding-left: 0; /* Align with navbar start */
-padding-right: 1rem;
+padding-right: 0.5rem; /* Reduced from 1rem */
 }
 
 .yl-hero-image {
@@ -39,7 +39,7 @@ flex: 0 0 40%;
 max-width: 450px;
 position: relative;
 z-index: -1;
-transform: translateX(-40px) translateY(-15px); /* Move more to the left */
+transform: translateX(-40px) translateY(-15px); /* Moved further left */
 padding-right: 0; /* Align with navbar end */
 }
 
@@ -62,27 +62,27 @@ transform: scale(1.02);
 /* Large Desktop: Better control over positioning */
 @media (min-width: 1200px) {
 .yl-hero {
-gap: 3rem;
-padding: min(8vw, 100px) 3rem 64px;
+gap: 1.5rem; /* Reduced from 3rem */
+padding: min(4vw, 50px) 3rem 64px;
 max-width: 1200px;
 }
 
 .yl-hero-image {
 flex: 0 0 38%;
 max-width: 450px;
-transform: translateX(-20px) translateY(-20px);
+transform: translateX(-30px) translateY(-20px); /* Adjusted to maintain left position */
 }
 }
 
 /* Ultra-wide screens */
 @media (min-width: 1440px) {
 .yl-hero {
-padding: min(8vw, 100px) 4rem 64px;
+padding: min(4vw, 50px) 4rem 64px;
 max-width: 1400px;
 }
 
 .yl-hero-image {
-transform: translateX(-10px) translateY(-20px);
+transform: translateX(-25px) translateY(-20px); /* Adjusted to maintain left position */
 }
 }
 
@@ -137,8 +137,9 @@ padding: 0;
 }
 }
 
+/* Enhanced main title font size for Home Page */
 .yl-title {
-font-size: clamp(36px, 5.8vw, 74px);
+font-size: clamp(55px, 11vw, 130px); /* Increased slightly more */
 line-height: 1.03;
 font-weight: 900;
 color: #111;
@@ -156,6 +157,7 @@ color: transparent;
 background-clip: text;
 animation: shimmer 3s linear infinite;
 text-shadow: 0 2px 4px rgba(255, 122, 26, 0.3);
+font-size: 1.2em; /* Make the accent text slightly larger */
 }
 
 .yl-subtitle {
@@ -1177,4 +1179,200 @@ transform: scale(1);
 @keyframes shimmer {
 0% { background-position: -200% 0; }
 100% { background-position: 200% 0; }
+}
+
+/* Add border animation to navbar - responsive for all screen sizes */
+@keyframes borderAnimation {
+  0% {
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  25% {
+    border-color: rgba(183, 65, 14, 0.3);
+    box-shadow: 0 4px 25px rgba(183, 65, 14, 0.15);
+  }
+  50% {
+    border-color: rgba(217, 119, 6, 0.4);
+    box-shadow: 0 4px 30px rgba(217, 119, 6, 0.2);
+  }
+  75% {
+    border-color: rgba(183, 65, 14, 0.3);
+    box-shadow: 0 4px 25px rgba(183, 65, 14, 0.15);
+  }
+  100% {
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@keyframes borderPulse {
+  0% {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    border-color: rgba(183, 65, 14, 0.4);
+  }
+  100% {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Base navbar animation - works on all screen sizes */
+.yl-nav {
+  animation: borderAnimation 3s infinite ease-in-out;
+  transition: all 0.3s ease;
+}
+
+/* Enhance hover effect for all screen sizes */
+.yl-nav:hover {
+  animation: borderPulse 1.5s infinite ease-in-out;
+  border-color: rgba(183, 65, 14, 0.5) !important;
+  box-shadow: 0 6px 25px rgba(183, 65, 14, 0.25) !important;
+}
+
+/* Add glow effect to active nav links - responsive for all sizes */
+.yl-link.is-active::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 14px;
+  background: linear-gradient(45deg, #d97706, #b7410e, #d97706);
+  background-size: 300% 300%;
+  z-index: -1;
+  animation: glowAnimation 2s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes glowAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Ensure animations work on all screen sizes by removing any size-specific restrictions */
+
+/* Large screens */
+@media (min-width: 1440px) {
+  .yl-nav {
+    animation: borderAnimation 3s infinite ease-in-out;
+  }
+  
+  .yl-nav:hover {
+    animation: borderPulse 1.5s infinite ease-in-out;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .yl-nav {
+    animation: borderAnimation 3s infinite ease-in-out;
+  }
+  
+  .yl-nav:hover {
+    animation: borderPulse 1.5s infinite ease-in-out;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .yl-nav {
+    animation: borderAnimation 3s infinite ease-in-out;
+  }
+  
+  .yl-nav:hover {
+    animation: borderPulse 1.5s infinite ease-in-out;
+  }
+}
+
+/* Small tablets and large phones */
+@media (min-width: 481px) and (max-width: 767px) {
+  .yl-nav {
+    animation: borderAnimation 3s infinite ease-in-out;
+  }
+  
+  .yl-nav:hover {
+    animation: borderPulse 1.5s infinite ease-in-out;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .yl-nav {
+    animation: borderAnimation 3s infinite ease-in-out;
+  }
+  
+  .yl-nav:hover {
+    animation: borderPulse 1.5s infinite ease-in-out;
+  }
+}
+
+.hero-image {
+    transform: translateX(-10px); /* Adjust as necessary */
+}/* Example CSS for the text */
+.yl-title {
+    font-size: clamp(55px, 11vw, 130px); /* This is an example; check actual CSS */
+}.hero-image {
+    /* Move image slightly to the left */
+    transform: translateX(-10px); /* Adjust the value as needed */
+}.hero-image {
+    /* Move image slightly to the left */
+    transform: translateX(-10px); /* Adjust the value as needed */
+}.hero-image {
+    /* Move image slightly to the left */
+    transform: translateX(-10px); /* Adjust the value as needed */
+}.yl-title {
+    font-size: clamp(55px, 11vw, 130px); /* Ensure this is consistent */
+    line-height: 1.03;
+    font-weight: 900;
+    color: #111;
+    max-width: 14ch;
+    word-break: break-word;
+    animation: fadeSlideUp 1s ease-out forwards;
+}.hero-image {
+    transform: translateX(-10px); /* Adjust as necessary */
+}@font-face {
+  font-family: 'CustomFont';
+  src: url('path/to/font.woff2') format('woff2'),
+       url('path/to/font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, .yl-game-details .text-sm {
+  font-family: 'CustomFont', sans-serif;
+}/* Enhanced game details with more visible colors */
+.yl-game-details .text-sm {
+  color: #ffffff; /* Pure white for maximum visibility */
+  font-weight: 600; /* Bolder font weight */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); /* Enhanced text shadow for better contrast */
+  font-size: 1.2rem; /* Increased font size */
+  letter-spacing: 0.03em; /* Slight letter spacing for better readability */
+}
+
+/* Add a subtle glow effect to the text on hover */
+.yl-game-details .flex.items-center:hover .text-sm {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+}/* Enhanced game details with more visible colors */
+.yl-game-details .text-sm {
+  color: #ffffff; /* Pure white for maximum visibility */
+  font-weight: 600; /* Bolder font weight */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); /* Enhanced text shadow for better contrast */
+  font-size: 1.2rem; /* Increased font size */
+  letter-spacing: 0.03em; /* Slight letter spacing for better readability */
+}
+
+/* Add a subtle glow effect to the text on hover */
+.yl-game-details .flex.items-center:hover .text-sm {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  color: #ffffff;
 }
