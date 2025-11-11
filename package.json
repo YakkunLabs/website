@@ -1,0 +1,24 @@
+{
+  "name": "gg.play",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Launch your metaverse/game in no time.",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "prisma:dev": "npm --prefix server run prisma:migrate && npm --prefix server run prisma:generate"
+  },
+  "keywords": [
+    "metaverse",
+    "game",
+    "builder"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

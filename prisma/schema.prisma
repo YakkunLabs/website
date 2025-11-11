@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Asset {
+  id                String   @id @default(cuid())
+  type              String
+  originalName      String
+  filename          String
+  mime              String
+  size              Int
+  url               String
+  createdAt         DateTime @default(now())
+  Project_character Project? @relation("CharacterAsset")
+  Project_model     Project? @relation("ModelAsset")
+  Project_worldMap  Project? @relation("WorldMapAsset")
+}
+
+model Project {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  characterId String?   @unique
+  modelId     String?   @unique
+  worldMapId  String?   @unique
+  character   Asset?    @relation("CharacterAsset", fields: [characterId], references: [id])
+  model       Asset?    @relation("ModelAsset", fields: [modelId], references: [id])
+  worldMap    Asset?    @relation("WorldMapAsset", fields: [worldMapId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  buildJobs   BuildJob[]
+}
+
+model BuildJob {
+  id        String   @id @default(cuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id])
+  status    String   @default("QUEUED")
+  logs      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
