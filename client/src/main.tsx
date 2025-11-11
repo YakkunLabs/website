@@ -6,7 +6,25 @@ import { Toaster } from 'sonner';
 import App from './App';
 import './styles/tailwind.css';
 
-const basename = new URL(import.meta.env.BASE_URL, window.location.origin).pathname;
+function getBasename() {
+  const rawBase = import.meta.env.BASE_URL;
+  if (rawBase && rawBase !== '/' && rawBase !== './') {
+    return rawBase;
+  }
+
+  const isGitHubPages = window.location.hostname.endsWith('github.io');
+  if (isGitHubPages) {
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    const repoSegment = segments.at(0);
+    if (repoSegment) {
+      return `/${repoSegment}/`;
+    }
+  }
+
+  return '/';
+}
+
+const basename = getBasename();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
