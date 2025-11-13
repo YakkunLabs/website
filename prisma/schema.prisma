@@ -23,13 +23,15 @@ model Asset {
 
 model Project {
   id          String    @id @default(cuid())
-  name        String    @unique
+  name        String
+  userId      String?
   characterId String?   @unique
   modelId     String?   @unique
   worldMapId  String?   @unique
   character   Asset?    @relation("CharacterAsset", fields: [characterId], references: [id])
   model       Asset?    @relation("ModelAsset", fields: [modelId], references: [id])
   worldMap    Asset?    @relation("WorldMapAsset", fields: [worldMapId], references: [id])
+  user        User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   buildJobs   BuildJob[]
@@ -38,10 +40,50 @@ model Project {
 model BuildJob {
   id        String   @id @default(cuid())
   projectId String
-  project   Project  @relation(fields: [projectId], references: [id])
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
   status    String   @default("QUEUED")
   logs      String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  password     String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  metaverses   Metaverse[]
+  projects     Project[]
+  subscription Subscription?
+}
+
+model Metaverse {
+  id            String   @id @default(cuid())
+  userId        String
+  name          String
+  kind          String   @default("THREE_D") // TWO_D or THREE_D
+  region        String   @default("ASIA")      // ASIA, EU, or US
+  status        String   @default("STOPPED")  // RUNNING, STOPPED, ERROR, STARTING, STOPPING
+  playersOnline Int      @default(0)
+  uptimeMinutes Int      @default(0)
+  hoursUsed     Int      @default(0)
+  version       String   @default("v1.0.0")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  thumbnail     String?
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Subscription {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  plan         String   @default("INDIE")    // INDIE, PRO, or STUDIO
+  monthlyHours Int      @default(200)
+  usedHours    Int      @default(0)
+  resetDate    DateTime
+  nextBilling  DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
 

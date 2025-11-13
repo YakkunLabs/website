@@ -74,7 +74,7 @@ export function UploadCard({
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-lg font-semibold text-white">{title}</h3>
-            <p className="text-sm text-muted-foreground">{description}</p>
+            <p className="text-sm text-gray-300">{description}</p>
           </div>
           <Button
             type="button"
@@ -92,19 +92,19 @@ export function UploadCard({
         <div
           {...getRootProps()}
           className={cn(
-            'group relative flex flex-1 cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-border bg-background/60 p-6 text-center transition',
+            'group relative flex flex-1 cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-white/20 bg-[#222222] p-6 text-center transition hover:border-blue-500/40',
             isDragActive && 'border-primary shadow-glow',
             isUploading && 'cursor-progress opacity-70',
           )}
         >
           <input {...getInputProps()} />
           <UploadCloud className="mb-4 h-10 w-10 text-primary" />
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-gray-300">
             {isDragActive
               ? 'Drop the file here'
               : 'Drag & drop or use the Browse button'}
           </p>
-          <p className="mt-2 text-xs text-muted-foreground">
+          <p className="mt-2 text-xs text-gray-400">
             Max size {maxSizeMB}MB
           </p>
           {uploadedFileName && (
@@ -120,12 +120,12 @@ export function UploadCard({
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <p className="mt-2 text-xs text-muted-foreground">{progress}%</p>
+              <p className="mt-2 text-xs text-gray-400">{progress}%</p>
             </div>
           )}
         </div>
         {preview && (
-          <div className="overflow-hidden rounded-xl border border-border bg-background/60 p-3">
+          <div className="overflow-hidden rounded-xl border border-white/20 bg-[#222222] p-3">
             {preview}
           </div>
         )}

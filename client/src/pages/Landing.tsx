@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, Layers3, Rocket, TimerReset } from 'lucide-react';
+import { Layers3, Rocket, TimerReset } from 'lucide-react';
 
 import { GridPattern } from '@/components/backgrounds/GridPattern';
-import { Button } from '@/components/ui/button';
 
 export function Landing() {
   const highlights = [
@@ -24,43 +22,61 @@ export function Landing() {
   ];
 
   return (
-    <div className="relative isolate flex min-h-screen flex-col overflow-hidden bg-background px-6 py-24 sm:px-16">
+    <div className="relative isolate flex min-h-screen flex-col overflow-hidden bg-[#0A0A0A] px-6 pb-24 pt-12 sm:px-16">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.25),_transparent_45%),radial-gradient(circle_at_bottom,_rgba(96,165,250,0.2),_transparent_45%)]" />
       <GradientOrbs />
-      <GridPattern density="normal" className="opacity-40" />
-      <header className="mx-auto w-full max-w-5xl text-center">
+      <GridPattern density="normal" className="opacity-30" />
+      <div className="relative z-10 mx-auto mb-12 flex w-full max-w-5xl items-center justify-end text-sm text-[#E5E7EB]/80">
+        <nav className="flex items-center gap-3">
+          <button
+            disabled={true}
+            className="relative z-10 rounded-full bg-gray-600 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-400 opacity-50 cursor-not-allowed"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
+            Creator
+          </button>
+        </nav>
+      </div>
+      <header className="relative z-10 mx-auto w-full max-w-5xl text-center">
         <div className="flex flex-col items-center">
-          <span className="rounded-full border border-border bg-surface/70 px-4 py-1 text-xs uppercase tracking-[0.4em] text-muted-foreground backdrop-blur">
+          <span className="rounded-full border border-white/20 bg-[#111111] px-4 py-1 text-xs uppercase tracking-[0.4em] text-white backdrop-blur">
             Build Faster
           </span>
           <h1 className="mt-8 text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
             <span className="bg-primary-gradient bg-clip-text text-transparent">
-              YakkunLabs Play
+              YakkunLabs
             </span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-[#E5E7EB]/80 sm:text-xl">
+          <p className="mt-6 max-w-xl text-xl text-[#E5E7EB]/80 sm:text-2xl md:text-3xl">
             Launch your metaverse/game in{' '}
             <span className="bg-primary-gradient bg-clip-text font-semibold text-transparent">
               No time
             </span>
             .
           </p>
-          <Button
-            asChild
-            className="mt-10 h-12 px-8 text-base shadow-glow transition hover:shadow-[0_0_40px_rgba(109,40,217,0.65)]"
-          >
-            <Link to="/build" className="inline-flex items-center gap-2">
-              Build Now
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
+          <div className="relative z-10 mt-10 flex justify-center">
+            <button
+              disabled={true}
+              className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-transparent px-8 py-3 h-12 text-base font-medium text-gray-400 opacity-50 cursor-not-allowed shadow-none"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+              }}
+            >
+              Coming Soon
+            </button>
+          </div>
         </div>
       </header>
-      <section className="mx-auto mt-16 w-full max-w-5xl">
+      <section className="relative z-10 mx-auto mt-16 w-full max-w-5xl">
         <div className="grid gap-4 sm:grid-cols-3">
           {highlights.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="group rounded-2xl border border-border/70 bg-surface/80 p-5 shadow-[0_20px_60px_-35px_rgba(6,182,212,0.55)] backdrop-blur transition hover:-translate-y-1 hover:border-primary/70"
+              className="group relative z-10 rounded-2xl border border-white/20 bg-[#111111] p-5 shadow-[0_18px_45px_-35px_rgba(59,130,246,0.4)] backdrop-blur transition hover:-translate-y-0.5 hover:border-blue-500/30"
             >
               <div className="flex items-center gap-3 text-left">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-gradient/40 text-white transition group-hover:bg-primary-gradient">
@@ -81,10 +97,10 @@ function GradientOrbs() {
   return (
     <>
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-16 top-24 h-72 w-72 animate-float rounded-full bg-[radial-gradient(circle_at_center,_rgba(109,40,217,0.5),_transparent_60%)] blur-3xl" />
-        <div className="absolute right-0 top-60 h-80 w-80 animate-float rounded-full bg-[radial-gradient(circle_at_center,_rgba(6,182,212,0.45),_transparent_60%)] blur-3xl" />
+        <div className="absolute -left-16 top-24 h-72 w-72 animate-float rounded-full bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.5),_transparent_60%)] blur-3xl" />
+        <div className="absolute right-0 top-60 h-80 w-80 animate-float rounded-full bg-[radial-gradient(circle_at_center,_rgba(96,165,250,0.45),_transparent_60%)] blur-3xl" />
       </div>
-      <div className="absolute inset-x-0 top-0 -z-10 h-[400px] bg-[radial-gradient(120%_80%_at_50%_0%,rgba(109,40,217,0.5),rgba(17,24,39,0))]" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-[400px] bg-[radial-gradient(120%_80%_at_50%_0%,rgba(59,130,246,0.5),rgba(0,0,0,0))]" />
     </>
   );
 }

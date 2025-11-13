@@ -43,8 +43,11 @@ function useFitCamera(
       const newPosition = direction.multiplyScalar(distance);
 
       camera.position.set(newPosition.x, newPosition.y, newPosition.z);
-      camera.near = distance / 100;
-      camera.far = distance * 100;
+      // Better near/far plane calculation to prevent z-fighting
+      const minNear = 0.1;
+      const maxFar = 1000;
+      camera.near = Math.max(minNear, distance / 100);
+      camera.far = Math.min(maxFar, distance * 100);
       camera.updateProjectionMatrix();
 
       controlsRef.current?.target.set(0, 0, 0);
@@ -74,7 +77,42 @@ function SceneContent({
 }) {
   const groupRef = useRef<Group>(null);
   const { scene, animations } = useGLTF(url);
-  const clonedScene = useMemo(() => scene.clone(true), [scene]);
+  const clonedScene = useMemo(() => {
+    const cloned = scene.clone(true);
+    
+    // Fix material issues that cause cracks/artifacts
+    cloned.traverse((child) => {
+      if (child.type === 'Mesh') {
+        const mesh = child as any;
+        if (mesh.material) {
+          // Ensure materials are properly configured
+          if (Array.isArray(mesh.material)) {
+            mesh.material.forEach((mat: any) => {
+              if (mat) {
+                mat.needsUpdate = true;
+                // Fix common material issues
+                if (mat.type === 'MeshStandardMaterial' || mat.type === 'MeshPhysicalMaterial') {
+                  mat.roughness = mat.roughness ?? 0.5;
+                  mat.metalness = mat.metalness ?? 0.0;
+                  mat.needsUpdate = true;
+                }
+              }
+            });
+          } else {
+            mesh.material.needsUpdate = true;
+            // Fix common material issues
+            if (mesh.material.type === 'MeshStandardMaterial' || mesh.material.type === 'MeshPhysicalMaterial') {
+              mesh.material.roughness = mesh.material.roughness ?? 0.5;
+              mesh.material.metalness = mesh.material.metalness ?? 0.0;
+              mesh.material.needsUpdate = true;
+            }
+          }
+        }
+      }
+    });
+    
+    return cloned;
+  }, [scene]);
   const fitCameraToScene = useFitCamera(controlsRef, setCameraState);
   const { actions, names } = useAnimations(animations, groupRef);
 
@@ -139,10 +177,24 @@ export function ThreeViewer({
             </div>
           }
         >
-          <Canvas camera={{ position: [0, 1.5, 3], fov: 45 }}>
+          <Canvas 
+            camera={{ position: [0, 1.5, 3], fov: 45, near: 0.1, far: 1000 }}
+            gl={{ 
+              antialias: true, 
+              alpha: false,
+              powerPreference: "high-performance",
+              stencil: false,
+              depth: true,
+              logarithmicDepthBuffer: false
+            }}
+            dpr={[1, 2]}
+          >
             <color attach="background" args={['#05070F']} />
-            <ambientLight intensity={0.8} />
-            <directionalLight position={[5, 10, 5]} intensity={1.2} />
+            {/* Improved lighting to reduce artifacts */}
+            <ambientLight intensity={1.0} />
+            <directionalLight position={[5, 10, 5]} intensity={1.5} castShadow />
+            <directionalLight position={[-5, 5, -5]} intensity={0.8} />
+            <pointLight position={[10, 10, 10]} intensity={0.5} />
             <Environment preset="city" />
             <SceneContent
               url={url}
@@ -151,7 +203,16 @@ export function ThreeViewer({
               onAnimationsLoaded={onAnimationsLoaded}
               setCameraState={setCameraState}
             />
-            <OrbitControls ref={controlsRef} enableDamping />
+            <OrbitControls 
+              ref={controlsRef} 
+              enableDamping 
+              dampingFactor={0.05}
+              minDistance={0.1}
+              maxDistance={100}
+              enablePan={true}
+              enableZoom={true}
+              enableRotate={true}
+            />
           </Canvas>
         </Suspense>
       </div>

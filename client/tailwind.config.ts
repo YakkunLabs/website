@@ -10,25 +10,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#0B1020',
-        surface: '#111827',
+        background: '#0A0A0A',
+        surface: '#111111',
         primary: {
-          DEFAULT: '#6D28D9',
-          100: '#EDE9FE',
-          500: '#6D28D9',
+          DEFAULT: '#3B82F6',
+          100: '#DBEAFE',
+          500: '#3B82F6',
         },
-        accent: '#06B6D4',
-        border: 'rgba(229, 231, 235, 0.1)',
+        accent: '#60A5FA',
+        border: 'rgba(255, 255, 255, 0.1)',
         muted: {
-          DEFAULT: '#1F2937',
+          DEFAULT: '#1F1F1F',
           foreground: '#9CA3AF',
         },
       },
       backgroundImage: {
-        'primary-gradient': 'linear-gradient(90deg, #6D28D9 0%, #06B6D4 100%)',
+        'primary-gradient': 'linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%)',
       },
       boxShadow: {
-        glow: '0 0 20px rgba(109, 40, 217, 0.4)',
+        glow: '0 0 20px rgba(59, 130, 246, 0.4)',
       },
       keyframes: {
         float: {

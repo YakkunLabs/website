@@ -29,7 +29,8 @@ cd server
 cp .env.example .env
 npm install
 npx prisma generate
-npx prisma migrate dev --name init
+npx prisma migrate dev
+npm run seed
 
 # 3. Frontend setup
 cd ../client
@@ -51,10 +52,11 @@ Open the UI at `http://localhost:5173`. The Express API runs on `http://localhos
 ### Environment Variables
 `server/.env` (copy from `.env.example`):
 ```
-DATABASE_URL="file:./dev.db"
+DATABASE_URL="file:../prisma/dev.db"
 PORT=5000
 CLIENT_URL="http://localhost:5173"
 UPLOAD_DIR="./uploads"
+JWT_SECRET="change-me"
 ```
 
 ### API Overview
@@ -63,6 +65,14 @@ UPLOAD_DIR="./uploads"
 - `POST /api/project` — Upsert the default project with selected asset IDs.
 - `POST /api/build` — Create a build job, schedule simulated work, returns `{ jobId }`.
 - `GET /api/build/:jobId` — Poll build job status (`QUEUED | PROCESSING | DONE | ERROR`).
+- `POST /api/auth/login` — Creator dashboard login, returns `{ token, user }`.
+- `POST /api/auth/register` — Create a new creator account (optional onboarding path).
+- `GET /api/metaverses` — List all metaverses for the authenticated creator.
+- `POST /api/metaverses/:action/:id` — Control a metaverse (`start`, `stop`, `restart`).
+- `DELETE /api/metaverses/delete/:id` — Remove a metaverse world.
+- `GET /api/subscription` — Retrieve subscription usage for the creator.
+- `POST /api/subscription/buy` — Reduce used hours by purchasing additional capacity.
+- `POST /api/subscription/upgrade` — Upgrade plan between `INDIE`, `PRO`, and `STUDIO`.
 - Static files served at `/uploads/<filename>`.
 
 ### Notes

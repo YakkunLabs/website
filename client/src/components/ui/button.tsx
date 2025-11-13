@@ -12,10 +12,10 @@ export interface ButtonProps
 
 const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
   default:
-    'bg-primary-gradient text-white shadow-glow transition hover:shadow-[0_0_28px_rgba(109,40,217,0.55)] hover:brightness-110',
+    'bg-primary-gradient text-white shadow-glow transition hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] hover:brightness-110',
   outline:
-    'border border-border bg-transparent text-[#E5E7EB] hover:bg-muted hover:text-white',
-  ghost: 'text-[#E5E7EB] hover:bg-muted',
+    'border border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/30',
+  ghost: 'text-white hover:bg-white/10',
 };
 
 const sizeClasses: Record<NonNullable<ButtonProps['size']>, string> = {
