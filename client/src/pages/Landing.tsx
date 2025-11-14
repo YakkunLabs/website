@@ -33,8 +33,9 @@ export function Landing() {
         <nav className="flex items-center gap-3">
           <Link
             to={isLoggedIn ? '/creator/dashboard' : '/creator/login'}
-            className="relative z-10 h-2 w-2 rounded-full bg-white/20 transition hover:bg-white/40 hover:scale-125"
+            className="relative z-10 h-1.5 w-1.5 rounded-full bg-white/15 transition hover:bg-white/30 hover:scale-150"
             title=""
+            aria-label=""
           />
         </nav>
       </div>
