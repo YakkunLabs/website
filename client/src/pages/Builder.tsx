@@ -367,7 +367,7 @@ export function Builder() {
                 <p className="text-sm text-gray-300">Upload your character (.glb file with animations)</p>
               </div>
             </div>
-            <div className="max-w-2xl">
+            <div className="mx-auto max-w-2xl">
               <UploadCard
                 title="Character"
                 description=".glb file with rig and animations."
@@ -406,7 +406,7 @@ export function Builder() {
                 <p className="text-sm text-gray-300">Upload your model (.glb or .gltf file for environment/props)</p>
               </div>
             </div>
-            <div className="max-w-2xl">
+            <div className="mx-auto max-w-2xl">
               <UploadCard
                 title="Model"
                 description="Environment or props as .glb or .gltf."
@@ -436,7 +436,7 @@ export function Builder() {
                 <p className="text-sm text-gray-300">Optionally upload a world map (PNG/JPG image)</p>
               </div>
             </div>
-            <div className="max-w-2xl">
+            <div className="mx-auto max-w-2xl">
               <UploadCard
                 title="World map"
                 description="Optional top-down layout of your world."
@@ -475,7 +475,7 @@ export function Builder() {
                 <p className="text-sm text-gray-300">Preview your assets and build when ready</p>
               </div>
             </div>
-            <div className="max-w-2xl rounded-2xl border border-white/20 bg-[#2A2A2A] p-6">
+            <div className="mx-auto max-w-2xl rounded-2xl border border-white/20 bg-[#2A2A2A] p-6">
               <p className="text-sm text-gray-200">
                 Once you've uploaded your assets, click the <strong className="text-white">Build Game</strong> button at the bottom of the page to create your game bundle.
               </p>
@@ -512,14 +512,20 @@ export function Builder() {
               </Button>
             )}
             <Button
-              className="w-full sm:w-auto opacity-50 cursor-not-allowed"
-              disabled={true}
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-              }}
+              className="w-full sm:w-auto"
+              disabled={buildState === 'building'}
+              onClick={onSubmit}
             >
-              Coming Soon
+              {buildState === 'building' ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Building…
+                </>
+              ) : buildState === 'success' ? (
+                'Build Again'
+              ) : (
+                'Build Game'
+              )}
             </Button>
           </div>
         </div>

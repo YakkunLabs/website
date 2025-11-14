@@ -1,8 +1,11 @@
-import { Layers3, Rocket, TimerReset } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Layers3, Mail, Rocket, TimerReset } from 'lucide-react';
 
 import { GridPattern } from '@/components/backgrounds/GridPattern';
+import { getCreatorToken } from '@/lib/creatorApi';
 
 export function Landing() {
+  const isLoggedIn = getCreatorToken() !== null;
   const highlights = [
     {
       icon: Rocket,
@@ -28,16 +31,11 @@ export function Landing() {
       <GridPattern density="normal" className="opacity-30" />
       <div className="relative z-10 mx-auto mb-12 flex w-full max-w-5xl items-center justify-end text-sm text-[#E5E7EB]/80">
         <nav className="flex items-center gap-3">
-          <button
-            disabled={true}
-            className="relative z-10 rounded-full bg-gray-600 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-400 opacity-50 cursor-not-allowed"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-          >
-            Creator
-          </button>
+          <Link
+            to={isLoggedIn ? '/creator/dashboard' : '/creator/login'}
+            className="relative z-10 h-2 w-2 rounded-full bg-white/20 transition hover:bg-white/40 hover:scale-125"
+            title=""
+          />
         </nav>
       </div>
       <header className="relative z-10 mx-auto w-full max-w-5xl text-center">
@@ -87,6 +85,18 @@ export function Landing() {
               <p className="mt-3 text-sm text-muted-foreground">{description}</p>
             </div>
           ))}
+        </div>
+      </section>
+      <section className="relative z-10 mx-auto mt-16 w-full max-w-5xl">
+        <div className="flex items-center justify-center gap-3 rounded-full bg-[#111111] px-8 py-4 shadow-[0_18px_45px_-35px_rgba(59,130,246,0.4)] backdrop-blur">
+          <Mail className="h-5 w-5 text-primary" />
+          <span className="text-base font-medium text-white">Contact Us:</span>
+          <a
+            href="mailto:kasun@yakkunlabs.com"
+            className="text-base text-[#E5E7EB]/80 transition hover:text-primary hover:underline"
+          >
+            kasun@yakkunlabs.com
+          </a>
         </div>
       </section>
     </div>
